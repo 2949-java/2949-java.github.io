@@ -1,0 +1,818 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	数据结构——栈（详解） - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">数据结构——栈（详解）</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<h2><a id="%E4%B8%80%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一.栈的定义</h2>
+<blockquote>
+<p>栈（Stack）是一种常见的数据结构，它是一种“后进先出”（Last In First Out，LIFO）的数据结构。栈可以看做是一种特殊的线性表，只能在栈顶进行插入和删除操作。栈顶是允许操作的，而栈底是固定的。</p>
+</blockquote>
+<h2><a id="%E4%BA%8C%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二.栈的基本操作</h2>
+<p>栈的基本操作包括：入栈（Push）、出栈（Pop）、取栈顶元素（Top）和判空（IsEmpty）等。</p>
+<h3><a id="1%E9%A1%BA%E5%BA%8F%E6%A0%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.顺序栈</h3>
+<h4><a id="1-1%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1顺序栈的基本概念</h4>
+<blockquote>
+<p>顺序栈是一种使用数组实现的栈，也称为数组栈。其基本思路是通过数组来存储栈中的元素，并通过栈顶指针指示栈顶元素在数组中的位置。顺序栈具有以下特点：</p>
+<ol>
+<li>存储结构：使用数组作为底层存储结构，数组的每个元素存储栈中的一个元素；</li>
+<li>操作受限：栈只能从栈顶插入和删除元素，不支持在栈中间插入和删除元素；</li>
+<li>先进后出：栈的元素遵循“先进后出”（Last In First Out, LIFO）的原则，即后插入的元素先被删除；</li>
+<li>顺序访问：只能从栈顶开始访问栈中的元素，不能从栈底或中间位置访问元素。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>顺序栈的实现非常简单，可以使用数组和栈顶指针两个变量来实现。顺序栈的主要操作包括初始化、入栈、出栈、获取栈顶元素、判断栈是否为空以及获取栈中元素的数量等。由于顺序栈的存储结构是数组，因此在使用过程中需要考虑数组大小的限制，当栈中元素数量超过数组大小时，需要对数组进行扩容。<br />
+ <br />
+注意：除了遍历栈中的元素的操作时间复杂度为O(n)外，其余：入栈、出栈、取栈顶元素、判断栈是否为空操作的时间复杂度均为O(1)。</p>
+</blockquote>
+<p><img src="media/17237009048056/16864768613356.png" alt="" /></p>
+<h4><a id="1-2%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2顺序栈的基本操作</h4>
+<blockquote>
+<p>相关的头文件</p>
+</blockquote>
+<pre><code class="language-c">#include&lt;math.h&gt;
+#include &lt;iostream&gt;
+typedef int SElemType;
+#define STACK_INIT_SIZE 10 //存储空间初始分配量
+#define STACK_INCREMENT 2  //存储空间分配增量
+</code></pre>
+<blockquote>
+<p>定义顺序栈结构体</p>
+</blockquote>
+<pre><code class="language-c">struct SqStack{ //定义顺序栈结构体
+    SElemType *base; //栈底指针
+    SElemType *top;  //栈顶指针
+    int stacksize;   //栈可用的最大容量
+};
+</code></pre>
+<blockquote>
+<p>初始化栈</p>
+</blockquote>
+<pre><code class="language-c">void InitStack(SqStack &amp;S){ //初始化栈S
+    S.base = (SElemType*)malloc(STACK_INIT_SIZE*sizeof(SElemType)); //给栈分配空间
+    if(!S.base) //如果分配失败
+        exit(OVERFLOW); //则退出程序
+    S.top = S.base; //栈顶指针和栈底指针指向同一个位置
+    S.stacksize = STACK_INIT_SIZE; //初始化栈的最大容量
+}
+</code></pre>
+<blockquote>
+<p>销毁栈</p>
+</blockquote>
+<pre><code class="language-c">void DestoryStack(SqStack &amp;S){ //销毁栈S
+    free(S.base); //释放栈S占用的空间
+    S.top = S.base = NULL; //将栈底指针和栈顶指针都置为空
+    S.stacksize = 0; //将栈的最大容量清零
+}
+</code></pre>
+<blockquote>
+<p>清空栈</p>
+</blockquote>
+<pre><code class="language-c">void ClearStack(SqStack &amp;S){ //清空栈S
+    S.top = S.base; //将栈顶指针指向栈底指针，实现清空栈的效果
+}
+</code></pre>
+<blockquote>
+<p>判断栈是否为空</p>
+</blockquote>
+<pre><code class="language-c">int StackEmpty(SqStack S){ //判断栈S是否为空
+    if(S.top == S.base) //如果栈顶指针和栈底指针指向同一个位置，说明栈为空
+        return true;
+    else
+        return false;
+}
+</code></pre>
+<blockquote>
+<p>返回栈长度</p>
+</blockquote>
+<pre><code class="language-c">int StackLength(SqStack S){ //求栈S的长度
+    return S.top - S.base; //栈顶指针减去栈底指针的差即为栈的长度
+}
+</code></pre>
+<blockquote>
+<p>获取栈顶元素值</p>
+</blockquote>
+<pre><code class="language-c">int GetTop(SqStack S,SElemType &amp;e){ //获取栈顶元素，并将其存储到e中
+    if (S.top &gt; S.base){ //如果栈不为空
+        e = *(S.top-1); //将栈顶元素存储到e中
+        return true;
+    }
+    else
+        return false;
+}
+</code></pre>
+<blockquote>
+<p>入栈</p>
+</blockquote>
+<pre><code class="language-c">void Push(SqStack &amp;S,SElemType e){ //在栈顶插入元素e
+    if(S.top - S.base == S.stacksize){ //如果栈满
+        S.base = (SElemType*)realloc(S.base, (S.stacksize+STACK_INCREMENT)*sizeof(SElemType)); //给栈扩容
+        if(!S.base) //如果扩容失败
+            exit(OVERFLOW); //则退出程序
+        S.top = S.base + S.stacksize; //将栈顶指针指向扩容后的栈顶
+        S.stacksize += STACK_INCREMENT; //更新栈的最大容量
+    }
+    *(S.top)++ = e; //将元素e插入栈顶，并将栈顶指针上移一位
+}
+</code></pre>
+<blockquote>
+<p>出栈</p>
+</blockquote>
+<pre><code class="language-c">// 如果栈为空，返回false；否则返回true
+int Pop(SqStack &amp;S,SElemType &amp;e){
+    if(S.top == S.base) //栈空
+        return false;
+    e = *(--S.top); //将栈顶元素赋给e，栈顶指针下移一个存储单元
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>遍历打印栈内元素</p>
+</blockquote>
+<pre><code class="language-c">// 定义一个函数visit，用于打印元素
+void visit(SElemType e)
+{
+    std::cout &lt;&lt; e &lt;&lt; &quot; &quot;;
+}
+ 
+// 定义一个函数用于遍历栈中的元素并对每个元素执行visit函数
+void StackTraverse(SqStack S,void(*visit)(SElemType)){
+    SElemType *p = S.base;
+    while(S.top &gt; p) //p指向栈元素
+        visit(*p++); //对该栈调用visit()，p指针上移一个存储单元
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+<blockquote>
+<p>主函数</p>
+</blockquote>
+<pre><code class="language-c">int main() {
+    int j;
+    SqStack s;
+    SElemType e;
+    InitStack(s);
+    for(j = 1; j &lt;= 12; j++)
+        Push(s, j);
+    printf(&quot;栈中元素依次为\n&quot;);
+    StackTraverse(s, visit);
+    Pop(s,e);
+    printf(&quot;弹出的栈顶元素e = %d\n&quot;,e);
+    printf(&quot;栈空否? %d (1:空 0:否)\n&quot;,StackEmpty(s));
+    GetTop(s, e);
+    printf(&quot;栈顶元素e = %d,栈的长度为%d\n&quot;,e,StackLength(s));
+    ClearStack(s);
+    printf(&quot;清空栈后，栈空否? %d (1:空 0:否)\n&quot;,StackEmpty(s));
+    DestoryStack(s);
+    printf(&quot;销毁栈后，s.top = %u,s.base = %u,s.stacksize = %d\n&quot;,s.top,s.base,s.stacksize);
+}
+</code></pre>
+<h3><a id="2%E6%A0%88%E9%93%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.栈链</h3>
+<h4><a id="2-1%E6%A0%88%E9%93%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1栈链的基本概念</h4>
+<blockquote>
+<p>链栈是一种基于链表实现的栈，其特点是无需事先分配固定长度的存储空间，栈的长度可以动态增长或缩小，避免了顺序栈可能存在的空间浪费和存储溢出问题。<br />
+ <br />
+链栈中的每个元素称为“节点”，每个节点包括两个部分：数据域和指针域。数据域用来存储栈中的元素值，指针域用来指向栈顶元素所在的节点。<br />
+ <br />
+链栈的基本操作包括入栈、出栈、获取栈顶元素和遍历等，相比顺序栈而言，链栈的实现难度稍高，但其在某些情况下有着更好的灵活性和效率，特别适用于在动态存储空间较为紧缺的场合。<br />
+ <br />
+<strong>链栈的进栈push和出栈pop操作都很简单，时间复杂度均为O(1)<br />
+注意：如果栈的使用过程中元素变化不可预料,那么最好使用链栈,反之,如果它的变化在可控范围内,建议使用顺序栈。</strong></p>
+</blockquote>
+<h4><a id="2-1%E9%93%BE%E6%A0%88%E7%9A%84%E7%A7%8D%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1链栈的种类</h4>
+<blockquote>
+<p>链栈按照链表的实现方式可分为单链栈和双链栈。实际应用通常采用单链栈。<br />
+ <br />
+单链栈使用单链表实现，每个节点只含有一个指向下一个节点的指针。因此，单链栈只能从栈顶进行插入和删除操作。</p>
+</blockquote>
+<p><img src="media/17237009048056/16864773632261.jpg" alt="" /><br />
+<strong>双链栈</strong>使用双向链表实现，每个节点同时包含指向前一个节点和后一个节点的指针。因此，双链栈既可以从栈顶进行插入和删除操作，也可以从栈底进行插入和删除操作，使得操作更加灵活。</p>
+<p><img src="media/17237009048056/16864773978255.png" alt="" /></p>
+<h4><a id="2-3%E9%93%BE%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3链栈的基本操作</h4>
+<blockquote>
+<p>单链栈的类型定义</p>
+</blockquote>
+<pre><code class="language-c">// 定义链栈的结构体
+typedef struct StackNode{
+    SElemType data;
+    StackNode *next;
+}StackNode,*LinkStack;
+</code></pre>
+<blockquote>
+<p>单链栈初始化</p>
+</blockquote>
+<pre><code class="language-c">// 初始化链栈
+int InitStack(LinkStack &amp;S){
+    S = NULL;
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>判断单链栈是否为空</p>
+</blockquote>
+<pre><code class="language-c">// 判断链栈是否为空
+bool StackEmpty(LinkStack S){
+    return S == NULL;
+}
+</code></pre>
+<blockquote>
+<p>单链栈入栈</p>
+</blockquote>
+<p><img src="media/17237009048056/16864775546491.png" alt="" /></p>
+<pre><code class="language-c">// 入栈
+bool Push(LinkStack &amp;S, SElemType e){
+    StackNode *p = (StackNode*)malloc(sizeof(StackNode));
+    if(!p){
+        return false; // 分配内存失败
+    }
+    p-&gt;data = e;
+    p-&gt;next = S;
+    S = p;
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>单链栈出栈</p>
+</blockquote>
+<p><img src="media/17237009048056/16864775984672.png" alt="" /></p>
+<pre><code class="language-c">// 出栈
+bool Pop(LinkStack &amp;S, SElemType &amp;e){
+    if(StackEmpty(S)){
+        return false; // 栈为空
+    }
+    StackNode *p = S;
+    e = p-&gt;data;
+    S = S-&gt;next;
+    free(p);
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>获取单链栈栈顶元素</p>
+</blockquote>
+<pre><code class="language-c">// 获取栈顶元素
+bool GetTop(LinkStack S, SElemType &amp;e){
+    if(StackEmpty(S)){
+        return false; // 栈为空
+    }
+    e = S-&gt;data;
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>清空单链栈</p>
+</blockquote>
+<pre><code class="language-c">// 清空栈
+void ClearStack(LinkStack &amp;S){
+    StackNode *p;
+    while(S){
+        p = S;
+        S = S-&gt;next;
+        free(p);
+    }
+}
+</code></pre>
+<blockquote>
+<p>销毁单链栈</p>
+</blockquote>
+<pre><code class="language-c">// 销毁栈
+void DestroyStack(LinkStack &amp;S){
+    ClearStack(S);
+    S = NULL;
+}
+</code></pre>
+<blockquote>
+<p>遍历单链栈</p>
+</blockquote>
+<pre><code class="language-c">// 遍历栈并打印
+void StackTraverse(LinkStack S){
+    StackNode *p = S;
+    while(p){
+        printf(&quot;%d &quot;, p-&gt;data);
+        p = p-&gt;next;
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+<blockquote>
+<p>测试代码</p>
+</blockquote>
+<pre><code class="language-c">#include &lt;iostream&gt;
+ 
+int main() {
+    LinkStack S;
+    InitStack(S);
+    int e;
+    Push(S, 1);
+    Push(S, 2);
+    Push(S, 3);
+    printf(&quot;现在栈内元素为(后进先出)：&quot;);
+    StackTraverse(S);
+    printf(&quot;栈顶元素为：%d\n&quot;, GetTop(S,e));
+    Pop(S,e);
+    printf(&quot;现在栈内元素为(后进先出)：&quot;);
+    StackTraverse(S);
+    printf(&quot;弹出一个元素后，栈顶元素为：%d\n&quot;, GetTop(S,e));
+    ClearStack(S);
+    if (StackEmpty(S)) {
+        printf(&quot;栈为空\n&quot;);
+    } else {
+        printf(&quot;栈不为空\n&quot;);
+    }
+    DestroyStack(S);
+    return 0;
+}
+</code></pre>
+<h2><a id="%E4%B8%89%E6%A0%88%E7%9A%84%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三.栈的应用</h2>
+<h3><a id="1%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.函数递归调用</h3>
+<blockquote>
+<p>函数递归调用时，计算机会把函数调用时需要的参数和返回地址等信息放入栈中，函数执行完毕后再从栈中取回这些信息。</p>
+</blockquote>
+<pre><code class="language-c">//以汉诺塔问题为例展示栈的递归调用
+#include &lt;iostream&gt;
+ 
+int c = 0;
+void move(char x,int n,char z){
+    printf(&quot;第%i步:将%i号盘从%c移到%c\n&quot;, ++c, n, x, z);
+}
+ 
+void hanoi(int n, char x, char y, char z){
+    if(n==1){
+        move(x, 1, z);
+    }
+    else{
+        hanoi(n-1, x, z, y);
+        move(x, n, z);
+        hanoi(n-1, y, x, z);
+    }
+}
+ 
+int main() {
+    int n;
+    printf(&quot;三个塔座为a,b,c,圆盘最初在a座，借助b座移到c座，请输入圆盘数量：&quot;);
+    scanf(&quot;%d&quot;,&amp;n);
+    hanoi(n, 'a', 'b', 'c');
+}
+</code></pre>
+<p><img src="media/17237009048056/16864779117442.jpg" alt="" /></p>
+<p><img src="media/17237009048056/16864779114397.png" alt="" /></p>
+<h3><a id="2%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E8%A7%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.表达式求解</h3>
+<blockquote>
+<p>在编译器中，中缀表达式转为后缀表达式后，可以使用栈来实现后缀表达式的求值。</p>
+</blockquote>
+<pre><code class="language-c">char Precede(SElemType t1, SElemType t2)
+{ 
+  char f;
+  switch(t2)
+  { case '+':
+    case '-': if(t1=='(' || t1=='\n')
+                f='&lt;'; 
+              else
+                f='&gt;'; 
+              break;
+    case '*':
+    case '/': if(t1=='*' || t1=='/' || t1==')')
+                f='&gt;'; 
+              else
+                f='&lt;'; 
+              break;
+    case '(': if(t1==')')
+              { printf(&quot;括号不匹配\n&quot;);
+                exit(OVERFLOW);
+              }
+              else
+                f='&lt;'; 
+              break;
+    case ')': switch(t1)
+              { case '(': f='='; 
+                          break;
+                case'\n': printf(&quot;缺乏左括号\n&quot;);
+                          exit(OVERFLOW);
+                default : f='&gt;'; 
+              }
+              break;
+    case'\n': switch(t1)
+              { case'\n': f='='; 
+                          break;
+                case '(': printf(&quot;缺乏右括号\n&quot;);
+                          exit(OVERFLOW);
+                default : f='&gt;'; 
+              }
+  }
+  return f;
+}
+Status In(SElemType c)
+{ 
+  switch(c)
+  { case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '(':
+    case ')':
+    case'\n': return TRUE;
+    default : return FALSE;
+  }
+}
+SElemType Operate(SElemType a, SElemType theta, SElemType b)
+{ 
+  switch(theta)
+  { case '+': return a+b;
+    case '-': return a-b;
+    case '*': return a*b;
+  }
+  return a/b; 
+}
+ 
+ 
+//  表达式求值（范围为int类型，输入负数要用（0-正数）表示）
+typedef int SElemType; 
+SElemType EvaluateExpression()
+{ 
+  SqStack OPTR, OPND;
+  SElemType a, b, d, x; 
+  char c; 
+  c=getchar(); 
+  InitStack(OPTR); 
+  InitStack(OPND);
+  Push(OPTR, '\n'); 
+  GetTop(OPTR, x); 
+  while(c!='\n' || x!='\n') 
+  { if(In(c)) 
+      switch(Precede(x, c)) 
+      { case'&lt;': Push(OPTR, c); 
+                 c=getchar(); 
+                 break;
+        case'=': Pop(OPTR, x); 
+                 c=getchar(); 
+                 break;
+        case'&gt;': Pop(OPTR, x); 
+                 Pop(OPND, b); 
+                 Pop(OPND, a);
+                 Push(OPND, Operate(a, x, b)); 
+      }
+    else if(c&gt;='0' &amp;&amp; c&lt;='9') 
+    { d=0;
+      while(c&gt;='0' &amp;&amp; c&lt;='9') 
+      { d=d*10+c-'0';
+        c=getchar();
+      }
+      Push(OPND, d); 
+    }
+    else 
+    { printf(&quot;出现非法字符\n&quot;);
+      DestroyStack(OPTR);
+      DestroyStack(OPND);
+      exit(OVERFLOW);
+    }
+    GetTop(OPTR, x); 
+  }
+  Pop(OPND, x); 
+  if(!StackEmpty(OPND)) 
+  { printf(&quot;表达式不正确\n&quot;);
+    DestroyStack(OPTR);
+    DestroyStack(OPND);
+    exit(OVERFLOW);
+  }
+  DestroyStack(OPTR);
+  DestroyStack(OPND);
+  return x;
+}
+void main()
+{
+  printf(&quot;请输入算术表达式，负数要用（0-正数）表示\n&quot;);
+  printf(&quot;%d\n&quot;, EvaluateExpression());
+}
+</code></pre>
+<h3><a id="3%E6%95%B0%E5%80%BC%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.数值转换</h3>
+<blockquote>
+<p>可以使用栈来进行二进制和十进制等进制之间的转换</p>
+</blockquote>
+<pre><code class="language-c">#define N 8 
+typedef int SElemType; 
+ 
+void conversion() 
+{ 
+  SqStack s;
+  unsigned n; 
+  SElemType e;
+  InitStack(s); 
+  printf(&quot;将十进制整数n转换为%d进制数，请输入：n（≥0）=&quot;, N);
+  scanf(&quot;%u&quot;, &amp;n); 
+  while(n) 
+  { Push(s, n%N); 
+    n=n/N;
+  }
+  while(!StackEmpty(s)) 
+  { Pop(s, e); 
+    printf(&quot;%d&quot;, e); 
+  }
+  printf(&quot;\n&quot;);
+}
+void main()
+{
+  conversion();
+}
+</code></pre>
+<h3><a id="4%E8%BF%B7%E5%AE%AB%E6%B1%82%E8%A7%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.迷宫求解</h3>
+<blockquote>
+<p>在迷宫求解中，可以使用栈来实现深度优先搜索算法。</p>
+</blockquote>
+<pre><code class="language-c">// 利用栈求解迷宫问题（只输出一个解）
+struct PosType 
+{ int x; 
+  int y; 
+};
+// 全局变量
+PosType begin, end; 
+PosType direc[4]={{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+// {行增量, 列增量}，移动方向依次为东南西北
+#define MAXLENGTH 25 
+typedef int MazeType[MAXLENGTH][MAXLENGTH]; 
+MazeType m; 
+int x, y; 
+void Print()
+{ 
+  int i, j;
+  for(i=0; i&lt;x; i++)
+  { for(j=0; j&lt;y; j++)
+      printf(&quot;%3d&quot;, m[i][j]);
+    printf(&quot;\n&quot;);
+  }
+}
+void Init()
+{ 
+  int i, j, x1, y1;
+  printf(&quot;请输入迷宫的行数,列数（包括外墙）：&quot;);
+  scanf(&quot;%d,%d&quot;, &amp;x, &amp;y);
+ 
+  for(i=0; i&lt;y; i++) 
+  { m[0][i]=0; 
+    m[x-1][i]=0; 
+  }
+  for(i=1; i&lt;x-1; i++)
+  { m[i][0]=0; 
+    m[i][y-1]=0; 
+  }
+  for(i=1; i&lt;x-1; i++)
+    for(j=1; j&lt;y-1; j++)
+      m[i][j]=1; 
+  printf(&quot;请输入迷宫内墙单元数：&quot;);
+  scanf(&quot;%d&quot;, &amp;j);
+  printf(&quot;请依次输入迷宫内墙每个单元的行数,列数：\n&quot;);
+  for(i=1; i&lt;=j; i++)
+  { scanf(&quot;%d,%d&quot;, &amp;x1, &amp;y1);
+    m[x1][y1]=0; 
+  }
+  printf(&quot;迷宫结构如下：\n&quot;);
+  Print();
+  printf(&quot;请输入入口的行数,列数：&quot;);
+  scanf(&quot;%d,%d&quot;, &amp;begin.x, &amp;begin.y);
+  printf(&quot;请输入出口的行数,列数：&quot;);
+  scanf(&quot;%d,%d&quot;, &amp;end.x, &amp;end.y);
+}
+int curstep=1; 
+struct SElemType 
+{ int ord; 
+  PosType seat; 
+  int di; 
+};
+ 
+ 
+// 定义墙元素值为0，可通过路径为1，经试探不可通过路径为-1，通过路径为足迹
+Status Pass(PosType b)
+{ 
+  if(m[b.x][b.y]==1)
+    return OK;
+  else
+    return ERROR;
+}
+void FootPrint(PosType b)
+{ 
+  m[b.x][b.y]=curstep;
+}
+void NextPos(PosType &amp;b, int di)
+{ 
+ 
+  b.x+=direc[di].x;
+  b.y+=direc[di].y;
+}
+void MarkPrint(PosType b)
+{ 
+  m[b.x][b.y]=-1;
+}
+Status MazePath(PosType start, PosType end) 
+{ 
+  
+  PosType curpos=start; 
+  SqStack S; 
+  SElemType e; 
+  InitStack(S); 
+  do
+  { if(Pass(curpos)) 
+    { FootPrint(curpos); 
+      e.ord=curstep; 
+      e.seat=curpos; 
+      e.di=0; 
+      Push(S, e); 
+      curstep++; 
+      if(curpos.x==end.x &amp;&amp; curpos.y==end.y) 
+        return TRUE;
+      NextPos(curpos, e.di); 
+    }
+    else 
+    { if(!StackEmpty(S)) 
+      { Pop(S, e); 
+        curstep--; 
+        while(e.di==3 &amp;&amp; !StackEmpty(S)) 
+        { MarkPrint(e.seat); 
+          Pop(S, e); 
+          curstep--; 
+        }
+        if(e.di&lt;3) 
+        { e.di++; 
+          Push(S, e); 
+          curstep++; 
+          curpos=e.seat; 
+          NextPos(curpos,e.di);
+        }
+      }
+    }
+  }while(!StackEmpty(S));
+  return FALSE;
+}
+void main()
+{
+  Init(); 
+  if(MazePath(begin, end)) 
+  { printf(&quot;此迷宫从入口到出口的一条路径如下：\n&quot;);
+    Print(); 
+  }
+  else
+    printf(&quot;此迷宫没有从入口到出口的路径\n&quot;);
+}
+</code></pre>
+<h2><a id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考资料</h2>
+<ol>
+<li>严蔚敏、吴伟民：《数据结构（C语言版）》</li>
+<li>高一凡：《数据结构算法解析》</li>
+<li>程杰：《大话数据结构》</li>
+<li>王道论坛：《数据结构考研复习指导》</li>
+</ol>
+<h2><a id="%E6%88%91%E7%9A%84csdn%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>我的CSDN文章链接：</h2>
+<p><a href="http://t.csdn.cn/e16gW">数据结构-栈</a></p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>

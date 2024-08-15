@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	Java哈希表 - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">Java哈希表</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<h2><a id="%E5%93%88%E5%B8%8C%E8%A1%A8%E4%BB%8B%E7%BB%8D%EF%BC%88%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>哈希表介绍（数据结构）</h2>
+<h3><a id="1%E7%89%B9%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 特点</h3>
+<p>是一种有效的存储方式，是不与其他元素进行比较，一次存取便能得到所需要的记录</p>
+<h3><a id="2%E5%BB%BA%E7%AB%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 建立</h3>
+<p>在对象的存储位置和对象的关键属性（设为 k）之间建立一个特定的对应关系（设为 f），使每个对象与一个唯一的存储位置相对应</p>
+<h3><a id="3%E6%9F%A5%E6%89%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 查找</h3>
+<p>只要根据待查对象的关键属性 k 计算f(k)的值即可。如果此对象在集合中，则必定在存储位置 f(k)上，因此不需要与集合中的其他元素进行比较</p>
+<h2><a id="%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D%EF%BC%88%E7%AE%97%E6%B3%95%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>哈希算法介绍（算法）</h2>
+<h3><a id="1%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 名词解释</h3>
+<p>①Map：是映射、地图的意思，在Java中Map表示一种把K映射到V的数据类型；<br />
+②HashMap：Java中用哈希数据结构实现的Map</p>
+<h3><a id="2-hash%E7%AE%97%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Hash算法是什么？</h3>
+<h4><a id="%E8%8B%B1%E8%AF%AD%E7%BF%BB%E8%AF%91" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>英语翻译</h4>
+<blockquote>
+<p>hash    英 [hæʃ]   美 [hæʃ] n. 剁碎的食物；混杂，拼凑；重新表述 vt. 搞糟，把…弄乱；切碎；推敲 n. (Hash)人名；(阿拉伯、保、英)哈什；(西)阿什</p>
+</blockquote>
+<h4><a id="hash%E7%AE%97%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hash算法</h4>
+<blockquote>
+<p>这类算法接受任意长度的二进制输入值，对输入值做换算（切碎），最终给出固定长度的二进制输出值；<br />
+代表的是一类算法而不是一种算法，以更好理解的方式来说，Hash算法是摘要算法 ：也就是说，从不同的输入中，通过一些计算摘取出来一段输出数据，值可以用以区分输入数据</p>
+</blockquote>
+<h3><a id="3%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 哈希算法有什么用？</h3>
+<p>（1）信息安全领域<br />
+①Hash算法 可用作加密算法。<br />
+②如文件校验：通过对文件摘要，可以得到文件的“数字指纹”，你下载的任何副本的“数字指纹”只要和官方给出的“数字指纹”一致，那么就可以知道这是未经篡改的。例如著名的MD5<br />
+（2）数据结构领域<br />
+①Hash算法 通常还可用作快速查找。<br />
+②这是今天我想说的部分。根据Hash函数我们可以实现一种叫做哈希表（Hash Table）的数据结构。这种结构可以实现对数据进行快速的存取。</p>
+<h2><a id="%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D%EF%BC%88%E6%94%AF%E6%92%91%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E4%B8%80%E7%B1%BB%E5%87%BD%E6%95%B0%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>哈希函数介绍（支撑哈希表的一类函数）</h2>
+<h3><a id="1%E7%89%B9%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 特点</h3>
+<p>①灵活<br />
+哈希函数是一个映像，因此哈希函数的设定很灵活，只要使得任何关键字由此所得的哈希函数值都落在表长允许的范围之内即可。<br />
+②冲突<br />
+对不同的关键字可能得到同一哈希地址，这种现象称为冲突（collision）；<br />
+冲突只能尽量地少，而不能完全避免。因为，哈希函数是从关键字集合到地址集合的映像。而通常关键字集合比较大，它的元素包括所有可能的关键字，而地址集合的元素仅为哈希表中的地址值。因此，在实现哈希表这种数据结构的时候不仅要设定一个“好”的哈希函数，而且要设定一种处理冲突的方法。</p>
+<h3><a id="2%E9%9C%80%E8%80%83%E8%99%91%E5%9B%A0%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 需考虑因素</h3>
+<p>（1）Hash函数 执行的时间<br />
+（2）关键字 的长度<br />
+（3）Hash表 的大小<br />
+（4）关键字 的分布情况<br />
+（5）记录 的查找频率</p>
+<h3><a id="3%E5%87%BD%E6%95%B0%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 函数构造方法</h3>
+<h4><a id="%EF%BC%881%EF%BC%89%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）直接寻址法</h4>
+<p>取k 或k 的某个线性函数为Hash地址 。<br />
+特点：由于直接地址法相当于有多少个关键字就必须有多少个相应地址去对应，所以不会产生冲突，也正因为此，所以实际中很少使用这种构造方法。</p>
+<h4><a id="%EF%BC%882%EF%BC%89%E6%95%B0%E5%AD%97%E5%88%86%E6%9E%90%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（2）数字分析法</h4>
+<p>首先分析待存的一组关键字 ，比如是一个班级学生的出生年月日 ，我们发现他们的出生年 大体相同，那么我们肯定不能用他们的年 来作为存储地址 ，这样出现冲突 的几率很大；但是，我们发现月日 的具体数字差别很大，如果我们用月日 来作为Hash地址 ，则会明显降低冲突几率。因此，数字分析法就是找出关键字 的规律，尽可能用差异数据来构造Hash地址 ；<br />
+特点：需要提前知道所有可能的关键字，才能分析运用此种方法，所以不太常用。</p>
+<h4><a id="%EF%BC%883%EF%BC%89%E5%B9%B3%E6%96%B9%E5%8F%96%E4%B8%AD%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（3）平方取中法</h4>
+<ul>
+<li>先求出关键字的平方值，然后按需要取平方值的中间几位作为哈希地址。这是因为：平方后中间几位和关键字中每一位都相关，故不同关键字会以较高的概率产生不同的哈希地址。</li>
+<li>例：我们把英文字母在字母表中的位置序号作为该英文字母的内部编码。例如K的内部编码为11，E的内部编码为05，Y的内部编码为25，A的内部编码为01, B的内部编码为02。由此组成关键字“KEYA”的内部代码为11052501，同理我们可以得到关键字“KYAB”、“AKEY”、“BKEY”的内部编码。之后对关键字进行平方运算后，取出第7到第9位作为该关键字哈希地址，如下图所示：</li>
+</ul>
+<p><img src="media/17237009048455/16877885567724.png" alt="" /></p>
+<ul>
+<li>特点：较常用</li>
+</ul>
+<h4><a id="%EF%BC%884%EF%BC%89%E6%8A%98%E5%8F%A0%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（4）折叠法</h4>
+<ul>
+<li>将关键字分割成位数相同的几部分（最后一部分位数可以不同），然后取这几部分的叠加和（去除进位）作为散列地址。数位叠加可以有移位叠加和间界叠加两种方法。移位叠加是将分割后的每一部分的最低位对齐，然后相加；间界叠加是从一端向另一端沿分割界来回折叠，然后对齐相加。</li>
+</ul>
+<h4><a id="%EF%BC%885%EF%BC%89%E9%9A%8F%E6%9C%BA%E6%95%B0%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（5）随机数法</h4>
+<ul>
+<li>选择一个随机函数，取关键字的随机函数值作为Hash地址 ，通常用于关键字长度不同的场合。</li>
+<li>特点：通常，关键字长度不相等时，采用此法构建Hash函数 较为合适。</li>
+</ul>
+<h4><a id="%EF%BC%886%EF%BC%89%E9%99%A4%E7%95%99%E4%BD%99%E5%8F%96%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（6）除留余取法</h4>
+<ul>
+<li>取关键字被某个不大于Hash表 长m 的数p 除后所得的余数为Hash地址 。</li>
+<li>特点：这是最简单也是最常用的Hash函数构造方法。可以直接取模，也可以在平法法、折叠法之后再取模。</li>
+<li>值得注意的是，在使用除留取余法 时，对p 的选择很重要，如果p 选的不好会容易产生同义词 。由经验得知：p 最好选择不大于表长m的一个质数 、或者不包含小于20的质因数的合数。</li>
+</ul>
+<h2><a id="%E5%A4%84%E7%90%86%E5%86%B2%E7%AA%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>处理冲突</h2>
+<h3><a id="%E6%8F%8F%E8%BF%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>描述</h3>
+<p>假设哈希表的地址集为，冲突是指由关键字得到的哈希地址为的位置上已存有记录，则“处理冲突”就是为该关键字的记录找到另一个“空”的哈希地址。在处理冲突的过程中可能得到一个地址序列。即在处理哈希地址的冲突时，若得到的另一个哈希地址仍然发生冲突，则再求下一个地址，若仍然冲突，再求，依次类推，直至不发生冲突为止，则为记录在表中的地址。（需要注意此定义不太适合链地址法）</p>
+<h3><a id="%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法</h3>
+<p>（1）开放定址法<br />
+（2）再哈希法<br />
+（3）链地址法<br />
+（4）公共溢出区</p>
+<h3><a id="java%E4%B8%AD%E4%BD%BF%E7%94%A8map%E5%92%8Chashmap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Java中使用Map和HashMap</h3>
+<h4><a id="hashmap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>HashMap</h4>
+<ul>
+<li>Map&lt;K, V&gt;是一个以 键值(Key)-数值(Value) 对应形式存储数据的接口。 在数组中我们是通过数组下标来对其内容索引的，而在Map中我们通过对象来对对象进行索引，用来索引的对象叫做key，其对应的对象叫做value。</li>
+<li>HashMap是Map&lt;K, V&gt;的实现类。(Hashtable也是Map&lt;K, V&gt;的实现类) HashMap存储数据采用哈希表结构 ，元素的存取顺序不能保证一致。但键值是唯一、不重复的。</li>
+<li>HashMap是基于数组来实现哈希表的，数组就好比内存储空间，数组的index就好比内存的地址；</li>
+<li>HashMap的每个记录就是一个Entry&lt;K, V&gt;对象，数组中存储的就是这些对象；</li>
+<li>HashMap的哈希函数 = 计算出hashCode + 计算出数组的index；</li>
+<li>HashMap解决冲突：使用链地址法，每个Entry对象都有一个引用next来指向链表的下一个Entry；</li>
+<li>HashMap的装填因子：默认为0.75；<br />
+基本上HashMap就像这样：</li>
+</ul>
+<p><img src="media/17237009048455/16877885862807.png" alt="" /></p>
+<ul>
+<li>引入HashMap和Map并建立哈希表<br />
+import java.util.HashMap;<br />
+import java.util.Map;</li>
+<li>Map&lt;k,v&gt;<br />
+Map Ages = new HashMap();<br />
+// 这是用接口的形式实现哈希表<br />
+// Key是String类型，Value是Integer类型</li>
+<li>常用方法</li>
+</ul>
+<p><img src="media/17237009048455/16877885973757.png" alt="" /></p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>

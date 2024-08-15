@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	数据结构第二章——顺序表基本操作 - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">数据结构第二章——顺序表基本操作</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<p><strong>本文主要介绍数据结构中顺序表的相关操作的代码实现，代码用c语言实现</strong></p>
+<h3><a id="%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>创建一个顺序存储结构</h3>
+<blockquote>
+<p>首先，我们创建了一个顺序表的数据结构，命名为SqList。它包含了一个指向基础数组的指针base，记录了当前顺序表的长度length，以及顺序表底层数组的大小listsize。</p>
+</blockquote>
+<pre><code class="language-c">#define LIST_INIT_SIZE 10
+#define LIST_INCREMENT 2
+#define ERROR 0
+#define TRUE 1
+typedef struct SqList{
+int *base;
+int length;
+int listsize;
+}SqList;
+</code></pre>
+<h3><a id="%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>初始化顺序表</h3>
+<blockquote>
+<p>接下来，我们进行初始化顺序表的操作InitList。它通过动态内存分配为顺序表的基础数组分配内存空间，并将顺序表的属性初始化为初始状态。</p>
+</blockquote>
+<pre><code class="language-c">// 初始化顺序表
+// L 是 SqList 对象的引用
+void InitList(SqList&amp; L) {
+    // 分配存储底层数组的内存
+    L.base = (int*)malloc(LIST_INIT_SIZE * sizeof(int));
+    if (!L.base) {
+        // 如果分配内存失败，则退出程序
+        exit(-1);
+    }
+    // 初始化 SqList 对象的属性
+    L.length = 0;
+    L.listsize = LIST_INIT_SIZE;
+}
+</code></pre>
+<h3><a id="%E9%94%80%E6%AF%81%E9%A1%BA%E5%BA%8F%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>销毁顺序表</h3>
+<blockquote>
+<p>顺序表的销毁操作DestoryList用于释放顺序表底层数组的内存空间，并将顺序表的相关属性重置为初始值。</p>
+</blockquote>
+<pre><code class="language-c">void DestoryList(SqList&amp; L){
+    free(L.base);    // 释放底层数组内存
+    L.base = NULL;   // 清空指向底层数组的指针
+    L.length = 0;    // 清空长度
+    L.listsize = 0;  // 清空底层数组的大小
+}
+</code></pre>
+<h3><a id="%E6%B8%85%E7%A9%BA%E9%A1%BA%E5%BA%8F%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>清空顺序表</h3>
+<blockquote>
+<p>清空顺序表的操作ClearList将顺序表的长度设置为0，相当于将表清空。</p>
+</blockquote>
+<pre><code class="language-c">void ClearList(SqList&amp; L){
+    L.length = 0;   // 直接将长度设置为 0，相当于清空
+}
+</code></pre>
+<h3><a id="%E5%88%A4%E6%96%AD%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>判断顺序表是否为空</h3>
+<blockquote>
+<p>判断顺序表是否为空的操作ListEmpty检查顺序表的长度是否为0，如果是，则表示顺序表为空。</p>
+</blockquote>
+<pre><code class="language-c">bool ListEmpty(SqList L){
+    if(L.length == 0)
+        return 1;   // 如果长度为 0，则表为空
+    else
+        return 0;   // 否则表非空
+}
+</code></pre>
+<h3><a id="%E8%BF%94%E5%9B%9E%E8%A1%A8%E7%9A%84%E9%95%BF%E5%BA%A6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>返回表的长度</h3>
+<blockquote>
+<p>获取顺序表长度的操作ListLength直接返回顺序表的长度。</p>
+</blockquote>
+<pre><code class="language-c">int ListLength(SqList L){
+    return L.length;
+}
+</code></pre>
+<h3><a id="%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取指定位置的元素</h3>
+<blockquote>
+<p>获取指定位置元素的操作GetElem用于获取顺序表中指定位置的元素。它首先判断指定位置是否在有效范围内，如果不是，则返回错误标识符。如果位置合法，就通过指针运算获取指定位置的元素值，并将其赋值给引用参数e。</p>
+</blockquote>
+<pre><code class="language-c">// 获取 SqList 中指定位置的元素
+// i 是要获取的元素的位置，e 是获取的元素的引用
+bool GetElem(SqList L, int i, int&amp; e) {
+    if (i &lt; 1 || i &gt; L.length) {
+        // 如果位置 i 不在有效范围内，则返回错误标识符
+        return ERROR;
+    }
+    e = *(L.base + i - 1);  // 获取指针 L.base+i-1 指向的元素值，赋值给 e 引用
+    return TRUE;
+}
+</code></pre>
+<h3><a id="%E6%8C%89%E7%BB%99%E5%AE%9A%E5%80%BC%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%8D%E7%BD%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>按给定值查找元素的位置</h3>
+<blockquote>
+<p>按给定值查找元素位置的操作LocateElem用于在顺序表中查找具有指定值的元素。它通过循环遍历顺序表，将查找操作委托给用户定义的比较函数compare。如果找到匹配的元素，则返回其位置；否则返回0表示查找失败。</p>
+</blockquote>
+<pre><code class="language-c">// 在 SqList 中查找具有指定值的元素，使用 compare 函数指定比较操作
+// e 是要查找的值的引用，compare 是指向比较函数的指针
+int LocateElem(SqList L, int e, bool (*compare)(int, int)) {
+    int i = 1;          // 初始化计数器 i 为 1，表示序列中的第一个元素
+    int* p = L.base;    // 将指针 p 初始化为序列中的第一个元素的地址
+    while (i &lt;= L.length &amp;&amp; !compare(*p++, e)) {
+        // 只要 i 小于等于序列的长度，并且当前元素与查找值 e 不匹配，就循环继续
+        i++;    // 将计数器 i 加 1，表示在序列中检查下一个元素
+    }
+    if (i &lt;= L.length) {
+        // 如果循环结束时找到了匹配的元素，则返回其位置（即从 1 开始的计数器 i 的值）
+        return i;
+    } else {
+        // 如果循环结束时没有找到匹配的元素，则返回 0，表示查找失败
+        return 0;
+    }
+}
+</code></pre>
+<h3><a id="%E6%9F%A5%E6%89%BE%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0%E7%9A%84%E7%9B%B4%E6%8E%A5%E5%89%8D%E9%A9%B1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>查找顺序表指定元素的直接前驱</h3>
+<blockquote>
+<p>查找指定元素的直接前驱的操作PriorElem用于在顺序表中查找指定元素的前驱元素。它通过循环遍历顺序表，如果找到匹配的元素，则将其前一个元素赋值给引用参数pre_e。</p>
+</blockquote>
+<pre><code class="language-c">// 在 SqList 中查找指定元素的前驱元素
+// cur_e 是要查找前驱元素的元素，pre_e 是找到的前驱元素的引用
+bool PriorElem(SqList L, int cur_e, int&amp; pre_e) {
+    int i = 2;              // 初始化计数器 i 为 2，表示从序列的第二个元素开始查找
+    int *p = L.base + 1;    // 将指针 p 初始化为序列中的第二个元素的地址
+    while (i &lt;= L.length &amp;&amp; *p != cur_e) {
+        // 只要 i 小于等于序列的长度，并且当前元素不是要查找的前驱元素，就继续循环
+        p++;    // 将指针 p 向后移动一位，指向下一个元素
+        i++;    // 将计数器 i 加 1，表示在序列中检查下一个元素
+    }
+    if (i &gt; L.length) {
+        // 如果循环结束时未找到前驱元素，则返回错误标识符
+        return ERROR;
+    } else {
+        // 如果找到前驱元素，则将其赋值给 pre_e 引用并返回真
+        pre_e = *--p;
+        return TRUE;
+    }
+}
+</code></pre>
+<h3><a id="%E6%9F%A5%E6%89%BE%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0%E7%9A%84%E7%9B%B4%E6%8E%A5%E5%90%8E%E7%BB%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>查找顺序表指定元素的直接后继</h3>
+<blockquote>
+<p>查找指定元素的直接后继的操作NextElem用于在顺序表中查找指定元素的后继元素。它通过循环遍历顺序表，如果找到匹配的元素，则将其后一个元素赋值给引用参数next_e。</p>
+</blockquote>
+<pre><code class="language-c">bool NextElem(SqList L, int cur_e, int &amp;next_e){
+    int i = 1;              // 定义循环计数器 i，初始化为 1
+    int *p = L.base;        // 定义指针 p，指向顺序表 L 的首元素
+    while (i &lt;= L.length &amp;&amp; *p != cur_e){  // 当 i 小于等于顺序表 L 的长度并且指针 p 指向的元素值不等于 cur_e 时，循环遍历顺序表
+        p++;                // 将指针 p 移动到下一个元素位置
+        i++;                // 循环计数器 i 加 1
+    }
+    if (i == L.length){     // 若遍历完整个顺序表仍未找到 cur_e，返回 ERROR（0）
+        return ERROR;
+    }
+    else {                  // 否则，将指针 p 指向 cur_e 的下一个元素，并将其值赋给 next_e，返回 TRUE（1）
+        next_e = *++p;      // 将指针 p 移动到 cur_e 的下一个元素，并将该元素值赋给 next_e
+        return TRUE;
+    }
+}
+</code></pre>
+<h3><a id="%E5%9C%A8%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>在顺序表指定位置插入元素</h3>
+<blockquote>
+<p>在指定位置插入元素的操作ListInsert用于在顺序表的指定位置插入一个新元素。它首先判断插入位置的合法性，如果不合法，则返回错误标识符。如果顺序表已满，则通过realloc函数重新分配更大的内存空间，将顺序表的容量增加。然后，将插入位置及之后的元素向后移动一个位置，腾出空间插入新元素，并更新顺序表的长度。</p>
+</blockquote>
+<pre><code class="language-c">bool ListInsert(SqList &amp;L, int i, int e){
+    int *newbase, *p, *q;     // 定义指针变量 newbase、p、q
+    //判断删除的位置是否合法
+    if(i&lt;1||i&gt;L.length+1)
+        return ERROR;
+    if (L.length == L.listsize){    // 当顺序表已满时
+        newbase = (int*)realloc(L.base, (L.listsize + LIST_INCREMENT) * (sizeof(int)));   // 重新分配内存，将顺序表的大小扩大 LIST_INCREMENT 个单位
+        if (!newbase)   // 如果内存分配失败，则返回 ERROR（0）
+            return ERROR;
+        L.base = newbase;   // 将新分配的内存地址赋值给顺序表的基地址
+        L.listsize += LIST_INCREMENT;   // 更新顺序表的容量大小
+    }
+    q = L.base + i - 1;     // q 指向插入位置 i 的前一个位置
+    for (p = L.base + L.length - 1; p &gt;= q; --p)   // 将插入位置及其之后的元素向后移动一个位置
+        *(p + 1) = *p;
+    *q = e;     // 将新元素插入到插入位置 i 处
+    L.length++;     // 更新顺序表的长度
+    return TRUE;    // 插入成功，返回 TRUE（1）
+}
+</code></pre>
+<h3><a id="%E5%88%A0%E9%99%A4%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>删除顺序表指定元素</h3>
+<blockquote>
+<p>删除指定元素的操作ListDelete用于删除顺序表中的指定元素。它首先判断删除位置的合法性，如果不合法，则返回错误标识符。然后，定位要删除的元素，将要删除元素之后的所有元素向前移动一位，更新顺序表的长度，并将被删除的元素值保存到引用参数e中。</p>
+</blockquote>
+<pre><code class="language-c">bool ListDelete(SqList &amp;L,int i,int &amp;e){
+    int *p,*q;
+    //判断删除的位置是否合法
+    if(i&lt;1||i&gt;L.length)
+        return ERROR;
+    //定位要删除的元素
+    p = L.base+i-1;
+    //保存要删除的元素
+    e = *p;
+    //将要删除的元素之后的所有元素向前移动一位
+    q = L.base+L.length-1;
+    for(p++;p&lt;=q;p++)
+        *(p-1) = *p;
+    //表长减1
+    L.length--;
+    return TRUE;
+}
+</code></pre>
+<p><strong>顺序表</strong>作为一种简单而常用的数据结构，在算法和数据结构领域扮演着重要的角色。对于进一步深入学习和应用数据结构和算法来说，掌握顺序表的基本操作是一个重要的基础。<br />
+通过掌握这些基本操作，我们可以更有效地使用顺序表来管理和处理元素。需要注意的是，顺序表的主要限制是固定的容量，当表已满时无法再插入新元素。对于需要频繁插入和删除操作的场景，可能需要考虑其他数据结构。</p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>

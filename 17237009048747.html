@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	Mac环境下为IDEA下载配置并部署Maven - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">Mac环境下为IDEA下载配置并部署Maven</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<p>以下是在Mac环境下为IDEA下载配置并部署Maven的详细教程：</p>
+<ol>
+<li>下载Maven 可以从Maven官方网站（<a href="https://maven.apache.org/download.cgi">Maven 官方网站地址</a>）下载</li>
+<li>在IDEA中配置Maven 打开IDEA，并单击菜单“Preferences”（或者按快捷键“⌘，”），然后在左侧窗格中选择“Build, Execution, Deployment”&gt;“Build Tools”&gt;“Maven”。 在“Maven home directory”字段中输入Maven的安装路径，例如“/usr/local/maven”。</li>
+<li>创建Maven项目 单击IDEA主窗口中的“Create New Project”按钮，并选择“Maven”选项。然后选择想要的Maven模板（例如“Quickstart”），并在“GroupId”和“ArtifactId”字段中输入项目信息。</li>
+<li>配置Maven项目 在项目文件夹中找到“pom.xml”文件，并将其打开。可以在此文件中指定的项目依赖项和构建设置。例如，可以指定要使用的Java版本和编译器，以及要使用的依赖项和存储库。</li>
+<li>运行Maven命令 在IDEA中打开Maven工具窗口（菜单“View”&gt;“Tool Windows”&gt;“Maven”），然后在其中选择要运行的Maven命令（例如“clean”或“install”）。然后单击工具窗口中的“Run”按钮即可运行命令。</li>
+<li>部署Maven项目 在“pom.xml”文件中指定要使用的构建插件和部署存储库，然后使用Maven命令“deploy”将项目部署到指定的存储库。<br />
+以上是在Mac环境下为IDEA下载配置并部署Maven的详细教程。如果遇到任何问题，应该参考IDEA和Maven的官方文档或联系相应的开发人员。</li>
+</ol>
+<p>以下是Maven 3.3.x版本的直接下载地址：<br />
+● Maven 3.3.9二进制文件：<a href="https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz">Maven 3.3.9二进制文件下载地址</a><br />
+● Maven 3.3.9源代码：<a href="https://archive.apache.org/dist/maven/maven-3/3.3.9/source/apache-maven-3.3.9-src.tar.gz">Maven 3.3.9源代码</a><br />
+可以通过访问上面的链接来下载Maven 3.3.9版本的二进制文件和源代码。这是Maven 3.3.x系列的最新版本。如果需要其他版本的Maven 3.3.x，需要访问Maven官方网站（<a href="https://maven.apache.org/download.cgi">Maven 官方网站地址</a>）并下载相应版本的二进制文件或源代码。</p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>

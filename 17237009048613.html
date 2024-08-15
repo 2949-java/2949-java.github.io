@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	Java数据类型及类型转换（详解） - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">Java数据类型及类型转换（详解）</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<h2><a id="%E4%B8%80%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一.基本数据类型</h2>
+<p>Java 中的基本数据类型包括整型、浮点型、字符型和布尔型。</p>
+<h3><a id="1%E6%95%B4%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.整型</h3>
+<p>Java 中的整型有四种：byte、short、int 和 long。它们的取值范围如下：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>-128～127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>-32768～32767</td>
+</tr>
+<tr>
+<td>int</td>
+<td>-2147483648～2147483647</td>
+</tr>
+<tr>
+<td>long</td>
+<td>-9223372036854775808～9223372036854775807</td>
+</tr>
+</tbody>
+</table>
+<p>其中，byte 类型占 8 位，short 类型占 16 位，int 类型占 32 位，long 类型占 64 位。一般情况下，我们使用 int 类型。</p>
+<h3><a id="2%E6%B5%AE%E7%82%B9%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.浮点型</h3>
+<p>Java 中的浮点型有两种：float 和 double。它们的取值范围如下：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>1.4E-45～3.4028235E38</td>
+</tr>
+<tr>
+<td>double</td>
+<td>4.9E-324～1.7976931348623157E308</td>
+</tr>
+</tbody>
+</table>
+<p>其中，float 类型占 32 位，double 类型占 64 位。一般情况下，我们使用 double 类型。</p>
+<h3><a id="3%E5%AD%97%E7%AC%A6%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.字符型</h3>
+<p>Java 中的字符型只有一种：char，它用于存储单个字符。char 类型占 16 位，它的取值范围是 0 ~ 65535。</p>
+<h3><a id="4%E5%B8%83%E5%B0%94%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.布尔型</h3>
+<p>Java 中的字符型只有一种：char，它用于存储单个字符。char 类型占 16 位，它的取值范围是 0 ~ 65535。</p>
+<h2><a id="%E4%BA%8C%E5%BC%95%E7%94%A8%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二.引用数据类型</h2>
+<p>Java 中的引用数据类型包括类、数组和接口。</p>
+<h3><a id="1%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.类</h3>
+<p>在 Java 中，类是一种引用数据类型。我们可以使用关键字 class 来创建一个类。例如：</p>
+<pre><code class="language-Java">public class MyClass {
+    // 类的成员变量和方法
+}
+</code></pre>
+<h3><a id="2%E6%95%B0%E7%BB%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.数组</h3>
+<p>在 Java 中，数组也是一种引用数据类型。我们可以使用关键字 new 来创建一个数组。例如：</p>
+<pre><code class="language-Java">int[] myArray = new int[10];
+</code></pre>
+<p>这段代码创建了一个长度为 10 的整型数组。</p>
+<h3><a id="3%E6%8E%A5%E5%8F%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.接口</h3>
+<p>在 Java 中，接口也是一种引用数据类型。我们可以使用关键字 interface 来创建一个接口。例如：</p>
+<pre><code class="language-Java">public interface MyInterface {
+    // 接口的方法
+}
+</code></pre>
+<p>这段代码创建了一个名为 MyInterface 的接口。</p>
+<h2><a id="%E4%B8%89%E5%8F%98%E9%87%8F%E7%9A%84%E5%A3%B0%E6%98%8E%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三.变量的声明和初始化</h2>
+<p>在 Java 中，变量必须先声明，然后才能使用。声明变量的语法格式为：</p>
+<pre><code class="language-Java">数据类型 变量名;
+</code></pre>
+<p>例如，声明一个 int 类型的变量：</p>
+<pre><code class="language-Java">int num;
+</code></pre>
+<p>声明变量后，需要初始化才能使用。初始化变量的语法格式为：</p>
+<pre><code class="language-Java">变量名 = 值;
+</code></pre>
+<p>例如，初始化一个 int 类型的变量：</p>
+<pre><code class="language-Java">int num = 10;
+</code></pre>
+<p>当然，如果不想初始化变量，Java会赋给给它一个默认值。Java 中的基本数据类型都有默认值，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0L</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0.0f</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0.0d</td>
+</tr>
+<tr>
+<td>char</td>
+<td>'\u0000‘</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<h2><a id="%E5%9B%9B%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>四.数据类型</h2>
+<p>在 Java 中，如果要将一个数据类型转换成另一个数据类型，可以使用类型转换运算。类型转换运算分为两种：隐式类型转换和显式类型转换。</p>
+<blockquote>
+<p>在Java中整型、实型(常量)、字符型被视为简单数据类型，这些类型由低级到高级分别为(byte，short，char)-&gt;int-&gt;long-&gt;float-&gt;double<br />
+简单数据类型之间的转换又可以分为：</p>
+<ul>
+<li>低级到高级的自动类型转换</li>
+<li>高级到低级的强制类型转换</li>
+<li>包装类过渡类型能够转换</li>
+</ul>
+</blockquote>
+<h3><a id="1%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.隐式类型转换</h3>
+<p>如果将一个小类型的变量赋值给一个大类型的变量，Java 会自动进行类型转换，这种转换叫做隐式类型转换。例如：</p>
+<pre><code class="language-Java">int num = 10;
+double d = num;
+</code></pre>
+<p>在这个例子中，int 类型的变量 num 被赋值给 double 类型的变量 d，Java 会自动将 num 转换成 double 类型。<br />
+同样，下面的语句可以在Java中直接通过，但是将double型变量赋值给float变量，不加强转的话会报错：</p>
+<pre><code class="language-Java">byte b;
+int i=b;
+long l=b;
+float f=b;
+double d=b;
+</code></pre>
+<p>如果低级类型为char型，向高级类型(整型)转换时，会转换为对应ASCII码值，例如：</p>
+<pre><code class="language-Java">  char c='c';
+  int i=c;
+  System.out.println(&quot;output：&quot; i);//output：99
+</code></pre>
+<blockquote>
+<p>注意：byte、short、int三种类型（平级）都是整型，如果在操作整型数据时，最好统一使用int型。</p>
+</blockquote>
+<h3><a id="2%E6%98%BE%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.显式类型转换</h3>
+<p>如果将一个大类型的变量赋值给一个小类型的变量，Java 不会自动进行类型转换，必须使用显式类型转换。例如：</p>
+<pre><code class="language-Java">double d = 10.5;
+int num = (int) d;
+</code></pre>
+<p>在这个例子中，double 类型的变量 d 被赋值给 int 类型的变量 num，需要使用强制类型转换运算符将 d 转换成 int 类型。</p>
+<blockquote>
+<p>可以预见，这种转换可能会导致溢出或精度的下降。</p>
+</blockquote>
+<h3><a id="3%E5%8C%85%E8%A3%85%E7%B1%BB%E8%BF%87%E6%B8%A1%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.包装类过渡类型转换</h3>
+<blockquote>
+<p>在 Java 中，有些数据类型是基本数据类型，例如 int、double 等，而有些数据类型是对象类型，例如 Integer、Double 等。这些对象类型称为包装类，它们是为了让基本数据类型具有对象特性而设计的。在实际编程中，我们经常需要将基本数据类型转换成包装类，或者将包装类转换成基本数据类型。</p>
+<ul>
+<li>包装类可以将基本数据类型转换成对象类型，从而可以将基本数据类型作为对象来处理。</li>
+<li>包装类提供了一些方法，例如 toString()、valueOf() 等，可以方便地对基本数据类型进行操作。</li>
+<li>包装类可以作为泛型参数，从而使泛型可以处理基本数据类型。</li>
+</ul>
+</blockquote>
+<p>在 Java 中，每种基本数据类型都有对应的包装类，如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>基本数据类型</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+</tbody>
+</table>
+<h4><a id="3-1%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1基本数据类型和包装类的转换</h4>
+<h5><a id="3-1-1%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%88%90%E5%8C%85%E8%A3%85%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1.1基本数据类型转换成包装类</h5>
+<p>在 Java 中，可以使用包装类的 valueOf() 方法将基本数据类型转换成包装类。例如：</p>
+<pre><code class="language-Java">int num = 10;
+Integer i = Integer.valueOf(num);
+</code></pre>
+<p>在这个例子中，int 类型的变量 num 被转换成了 Integer 类型的对象 i。</p>
+<h4><a id="3-1-2%E5%8C%85%E8%A3%85%E7%B1%BB%E8%BD%AC%E6%8D%A2%E6%88%90%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1.2包装类转换成基本数据类型</h4>
+<p>在 Java 中，可以使用包装类的 xxxValue() 方法将包装类转换成基本数据类型。例如：</p>
+<pre><code class="language-Java">Integer i = 10;
+int num = i.intValue();
+</code></pre>
+<p>在这个例子中，Integer 类型的对象 i 被转换成了 int 类型的变量 num。</p>
+<h2><a id="%E4%BA%94%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>五.类型推断</h2>
+<p>Java 10 引入了类型推断功能，可以通过 var 关键字推断出变量的类型。例如：</p>
+<pre><code class="language-Java">var str = &quot;hello&quot;;
+</code></pre>
+<p>在这个例子中，Java 会根据 &quot;hello&quot; 的类型推断出 str 变量的类型为 String。</p>
+<h2><a id="%E5%85%AD%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>六.总结</h2>
+<p>Java 中的变量必须先声明，然后才能使用，变量的类型决定了它能够存储的数据类型。在使用变量之前，需要先初始化。类型转换运算符可以将一个数据类型转换成另一个数据类型，类型转换分为隐式类型转换和显式类型转换。Java 10 引入了类型推断功能，可以使用 var 关键字推断出变量的类型。</p>
+<p>以上仅是我个人的一些理解与总结。</p>
+<h2><a id="%E6%88%91%E7%9A%84csdn%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>我的CSDN文章链接：</h2>
+<p><a href="http://t.csdn.cn/xoO9F">Java数据类型及类型转换(详解)</a></p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	ChatGPT保姆式教程(微信机器人) - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">ChatGPT保姆式教程(微信机器人)</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<h3><a id="%E5%89%8D%E8%A8%80" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>前言</strong></h3>
+<p>互联网圈子里面ChatGPT现在实在是太火了，但是你不知道它，我只能说你OUT了，ChatGPT是什么呢？</p>
+<p>由人工智能实验室OpenAI发布的对话式大型语言模型ChatGPT引爆中文互联网。它可以与人类轻松地对话，无论是回答各种奇怪的问题，还是写代码改bug，或者谈谈企业发展，聊点web3和NFT，来几句心灵鸡汤，ChatGPT都不在话下。</p>
+<p>一句话来说ChatGPT就是一个个人的AI助手，由OpenAI这个公司开发，它现在已经非常完美了吗？</p>
+<p>还不是，有些问题还是会理解错误，给的答案呢也是千差万别。它给了我们一个想象的空间。</p>
+<p>第一大多数脑力工作者的劳动，并不能称之为脑力，只能叫工程。</p>
+<p>第二如果这个技术再成熟一点，搜索引擎 、可能会被替代。社交软件可能会被重构。</p>
+<p>第三未来你可能会有一个类似于钢铁侠的贾维斯。</p>
+<p>那怎么玩呢？本期教程就带领大家如何注册，接下来就带领大家去研究。</p>
+<h3><a id="%E8%AE%BF%E9%97%AE%E5%9C%B0%E5%9D%80" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>访问地址</strong></h3>
+<p>前提你需要一个上网工具（可以网上找找很多的）</p>
+<p>官网地址：<a href="https://chat.openai.com/chat">https://chat.openai.com/chat</a></p>
+<ul>
+<li>通过这个地址进行注册，为什么需要梯子呢？是在注册/登录/邮箱验证，这三步有地区检测，如果检测你的地区不在国内的话会禁止访问。</li>
+</ul>
+<p>国外手机号（<a href="https://sms-activate.org/cn/%EF%BC%89">https://sms-activate.org/cn/）</a></p>
+<ul>
+<li>邮箱可以直接注册，但是需要一个国外的手机号，目前国内还不支持。通过上面给的国外手机号注册地址可以直接获取，不过需要1块钱，建议选巴西。支持支付宝充值！</li>
+</ul>
+<h3><a id="1%E6%B3%A8%E5%86%8C-chatgpt%E8%B4%A6%E5%8F%B7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1 注册ChatGPT 账号</h3>
+<p><strong>ChatGPT</strong>：<a href="https://chat.openai.com/chat">https://chat.openai.com/chat</a></p>
+<p>注册邮箱建议优先使用Gmail</p>
+<p><img src="media/17237004352504/16881933797755.jpg" alt="" /></p>
+<p>填完邮箱信息需登录邮箱点击验证</p>
+<p><img src="media/17237004352504/16881934011242.jpg" alt="" /></p>
+<p>设置名称</p>
+<p><img src="media/17237004352504/16881935511791.jpg" alt="" /></p>
+<p>选择接收验证码号码的国家，进行电话号码验证。</p>
+<p><img src="media/17237004352504/16881935674582.jpg" alt="" /></p>
+<h4><a id="1-1%E9%AA%8C%E8%AF%81%E7%A0%81%E6%8E%A5%E6%94%B6%E5%B9%B3%E5%8F%B0%E6%B3%A8%E5%86%8C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1 验证码接收平台注册</h4>
+<p><strong>SMS-Activate</strong>：<a href="https://sms-activate.org/?ref=3099942">https://sms-activate.org/?ref=3099942</a></p>
+<p>建议优先使用Gmail 邮箱注册。</p>
+<p><img src="media/17237004352504/16881935852053.jpg" alt="" /></p>
+<p>点击充值</p>
+<p><img src="media/17237004352504/16881936096084.jpg" alt="" /></p>
+<p>往下滑动到支付宝支付，使用支付宝充值0.2美元（不需要海外支付宝）。Open Ai 的一次验证码费用大概是11卢布，人民币1块多，不过只能充美金。不同的国家费用可能不一样，你可以根据你要使用的国家号码的费用充值，我这里使用的是印度。</p>
+<p><img src="media/17237004352504/16881936325874.jpg" alt="" /></p>
+<p>服务搜索：openai</p>
+<p><img src="media/17237004352504/16881936556531.jpg" alt="" /></p>
+<p>选择你要的对应国家接收验证码</p>
+<p><img src="media/17237004352504/16881936688713.jpg" alt="" /></p>
+<p>点击加购会直接购买，显示电话号码</p>
+<p><img src="media/17237004352504/16881936834776.jpg" alt="" /></p>
+<p>复制号码到ChatGPT 验证页面，点击获取验证码</p>
+<p><img src="media/17237004352504/16881936996289.jpg" alt="" /></p>
+<p>验证码接收需要点时间，如果没有收到或超时或点击取消，会返还金额，可以重新购买号码。如果你选择的国家号码一直没有收到验证码，可以取消换国家号码重新验证。</p>
+<p>我切换了3个印度号码，都没有收到验证码，最后切换使用印度尼西亚号码成功收到验证码。<br />
+<img src="media/17237004352504/16881937206674.jpg" alt="" /></p>
+<h4><a id="1-2%E6%B3%A8%E5%86%8C%E6%88%90%E5%8A%9F%E7%95%8C%E9%9D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2 注册成功界面</h4>
+<p>接收到验证码，复制到ChatGPT 页面验证，注册成功。</p>
+<p><img src="media/17237004352504/16881937450570.jpg" alt="" /></p>
+<p>在使用的过程中如果出现以下类似页面内容，可以试一下这个方法：<strong>梯子开全局模式，浏览器首选语言设为你的代理地区相应语言或者英语，清除浏览器历史记录或者使用无痕模式。</strong></p>
+<p><img src="media/17237004352504/16881937633354.jpg" alt="" /></p>
+<p>以上为ChatGPT 注册流程，可能大家在注册或者使用过程中还会出现其他问题，可以联系我一起寻找解决方法。</p>
+<p>vx: 15715088740【备注gpt才通过】</p>
+<h3><a id="2%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%90%AD%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2 微信机器人搭建</h3>
+<p>首先是部署环节，可以有两种方式。</p>
+<p>其一，需要有Golang环境。</p>
+<h4><a id="2-1-golang%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1  Golang 环境搭建</h4>
+<p>Go（又称Golang）是Google开发的一种静态强类型、编译型、并发型，并具有<a href="https://so.csdn.net/so/search?q=%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6&amp;spm=1001.2101.3001.7020">垃圾回收</a>功能的编程语言</p>
+<p>golang 官网地址:<a href="https://golang.google.cn/">https://golang.google.cn/</a></p>
+<h5><a id="2-1-1%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1.1 安装包下载</h5>
+<p>golang 官网地址:<a href="https://golang.google.cn/">https://golang.google.cn/</a></p>
+<p><img src="media/17237004352504/16881938189834.png" alt="" /></p>
+<p>点击Download ，下载</p>
+<p><img src="media/17237004352504/16881938318867.png" alt="" /><br />
+这里笔者选择最新版1.19，windows平台</p>
+<p>2、配置环境变量</p>
+<p>在<strong>我的电脑</strong>上右键，点击<strong>属性</strong>，打开下面这个页面</p>
+<p><img src="media/17237004352504/16881938527854.png" alt="" /></p>
+<p>点击高级系统设置</p>
+<p><img src="media/17237004352504/16881938713579.png" alt="" /></p>
+<p>点击新建</p>
+<p>环境变量配置完成后，打开 cmd 窗口测试</p>
+<pre><code class="language-python"># 输入 go version
+</code></pre>
+<p>输出 go 版本信息即环境变量配置成功</p>
+<h4><a id="2-2%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%90%AD%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 机器人搭建</h4>
+<h5><a id="2-2-1-golang%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.1 golang环境部署</h5>
+<p>优点是操作简洁，但是推荐有一定技术底子的童鞋。</p>
+<pre><code class="language-plain_text">git clone https://github.com/malaohu/wechat-chatGPT.git
+cd wechat-chatGPT
+go mod tidy
+</code></pre>
+<p>在修改配置文件后，启动运行即可。</p>
+<pre><code class="language-plain_text">go run main.go
+</code></pre>
+<h5><a id="2-2-2-python%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.2 python环境部署</h5>
+<p>不需要本地Golang环境，Windows和Linux都适用。</p>
+<p>直接下载执行文件和配置文件，可执行文件和配置文件放到同一个目录里。</p>
+<p>Window系统双击就能运行了。</p>
+<p>但是这种方法仍旧是要有OpenAI注册账号的。</p>
+<p>在OpenAI官网上创建一个新的秘钥，用于修改配置文件。</p>
+<p><img src="media/17237004352504/16881939008880.png" alt="" /></p>
+<p>记得将API keys复制下来。</p>
+<p><img src="media/17237004352504/16881939249831.png" alt="" /></p>
+<p>1.克隆项目代码：</p>
+<pre><code class="language-plain_text">git clone https://github.com/zhayujie/chatgpt-on-wechat 
+cd chatgpt-on-wechat/
+</code></pre>
+<p>2.安装所需核心依赖：</p>
+<pre><code class="language-plain_text">pip3 install itchat-uos==1.5.0.dev0
+pip3 install openai==0.25.0
+</code></pre>
+<p>然后在<code>config.json</code>中填入自定义配置，各配置项含义如下：</p>
+<pre><code class="language-python"># config.json文件内容示例
+{ 
+  &quot;open_ai_api_key&quot;: &quot;YOUR API KEY&quot;               # 填入上面创建的 OpenAI API KEY
+  &quot;single_chat_prefix&quot;: [&quot;bot&quot;, &quot;@bot&quot;],           # 私聊时文本需要包含该前缀才能触发机器人回复
+  &quot;single_chat_reply_prefix&quot;: &quot;[bot] &quot;,           # 私聊时自动回复的前缀，用于区分真人
+  &quot;group_chat_prefix&quot;: [&quot;@bot&quot;],                # 群聊时包含该前缀则会触发机器人回复
+  &quot;group_name_white_list&quot;: [&quot;ChatGPT测试群&quot;, &quot;ChatGPT测试群2&quot;], # 开启自动回复的群名称列表
+  &quot;image_create_prefix&quot;: [&quot;画&quot;, &quot;看&quot;, &quot;找&quot;]                 # 开启图片回复的前缀
+}
+</code></pre>
+<h5><a id="2-2-3%E8%BF%90%E8%A1%8C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.3 运行</h5>
+<pre><code class="language-python">python app.py
+</code></pre>
+<p>程序启动后，浏览器就会跳出一个二维码网页，然后用微信扫码登录即可</p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>

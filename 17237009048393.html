@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	Java多态的知识总结[详解] - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">Java多态的知识总结[详解]</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<h2><a id="%E4%BB%80%E4%B9%88%E6%98%AFjava%E5%A4%9A%E6%80%81%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>什么是Java多态？</h2>
+<p>Java中的多态（polymorphism）是指同一个类型的对象，在不同的情况下会表现出不同的行为。在Java中，多态可以通过以下两种方式来实现：</p>
+<p><strong>一，方法重载（overloading）</strong><br />
+在同一个类中，可以定义多个方法，它们具有相同的名称但不同的参数列表。<br />
+<strong>二，方法重写（overriding）</strong><br />
+在子类中，可以定义一个与父类中同名、同参数的方法，并且返回值和异常类型也要相同。当子类对象调用这个方法时，会优先执行子类中的方法。</p>
+<p><strong>多态是面向对象编程的重要特性，它可以提高代码的灵活性和可复用性。</strong></p>
+<h2><a id="%E5%A4%9A%E6%80%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>多态的实现方式</h2>
+<p><strong>一，方法重载</strong><br />
+方法重载是指在同一个类中，可以定义多个方法，它们具有相同的名称但不同的参数列表。例如，我们可以定义一个print方法，它可以接收不同类型的参数：</p>
+<pre><code class="language-java">public class PrintUtil {
+    public static void print(int i) {
+        System.out.println(&quot;int:&quot; + i);
+    }
+
+    public static void print(double d) {
+        System.out.println(&quot;double:&quot; + d);
+    }
+
+    public static void print(String s) {
+        System.out.println(&quot;string:&quot; + s);
+    }
+}
+</code></pre>
+<p>在调用print方法时，根据传入的参数类型不同，会调用相应的方法：</p>
+<pre><code class="language-java">PrintUtil.print(1);          // 调用print(int i)
+PrintUtil.print(3.14);       // 调用print(double d)
+PrintUtil.print(&quot;hello&quot;);    // 调用print(String s)
+</code></pre>
+<p><strong>二，方法重写</strong><br />
+方法重写是指在子类中，可以定义一个与父类中同名、同参数的方法，并且返回值和异常类型也要相同。当子类对象调用这个方法时，会优先执行子类中的方法。</p>
+<p>看看下面的代码：</p>
+<pre><code class="language-java">public class Animal {
+    public void eat() {
+        System.out.println(&quot;Animal is eating.&quot;);
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    public void eat() {
+        System.out.println(&quot;Dog is eating.&quot;);
+    }
+}
+</code></pre>
+<p>在这个例子中，Dog类继承自Animal类，并重写了eat方法。当我们创建一个Dog对象并调用eat方法时，会优先执行Dog类中的eat方法：</p>
+<pre><code class="language-java">Dog dog = new Dog();
+dog.eat();    // 输出：Dog is eating.
+</code></pre>
+<p>这就是方法重写实现多态的一种方式。</p>
+<hr />
+<h2><a id="%E5%A4%9A%E6%80%81%E7%9A%84%E4%BC%98%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>多态的优点</h2>
+<p>使用多态可以提高代码的灵活性和可复用性。</p>
+<p><strong>一，提高代码的灵活性</strong><br />
+多态可以让代码更加灵活，能够适应不同的需求。比如，我们可以定义一个Animal数组，其中既可以存储Dog对象，也可以存储Cat对象，然后通过调用各自的eat方法来实现不同的行为。</p>
+<p><strong>二，提高代码的可复用性</strong><br />
+使用多态可以使代码更加通用化，减少代码的重复。比如，在上面的例子中，Animal类的eat方法可以被所有的Animal子类所共享，避免了在每个子类中重复实现这个方法。<br />
+另外，多态也可以提高代码的可维护性和扩展性。如果我们需要添加一个新的动物子类，只需要继承自Animal类并重写eat方法即可，而不需要修改原有的代码。</p>
+<hr />
+<h2><a id="%E5%A4%9A%E6%80%81%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>多态的实际应用</h2>
+<p>多态在实际开发中有着广泛的应用。下面列举一些常见的应用场景：</p>
+<p><strong>一，接口和抽象类</strong><br />
+接口和抽象类是Java中常用的多态实现方式。它们定义了一组行为，而不关心具体实现。具体的实现由实现类来完成。在实际开发中，我们经常使用接口和抽象类来定义通用的行为，然后由不同的实现类来实现具体的行为。</p>
+<p>比如，我们可以定义一个Animal接口，其中定义了eat方法：</p>
+<pre><code class="language-java">public interface Animal {
+    void eat();
+}
+</code></pre>
+<p>然后定义两个实现类Dog和Cat，它们分别实现了Animal接口：</p>
+<pre><code class="language-java">public class Dog implements Animal {
+    @Override
+    public void eat() {
+        System.out.println(&quot;Dog is eating.&quot;);
+    }
+}
+
+public class Cat implements Animal {
+    @Override
+    public void eat() {
+        System.out.println(&quot;Cat is eating.&quot;);
+    }
+}
+</code></pre>
+<p>这样，我们就可以通过Animal接口来调用不同的实现类，实现多态的效果：</p>
+<pre><code class="language-java">Animal dog = new Dog();
+Animal cat = new Cat();
+
+dog.eat();    // 输出：Dog is eating.
+cat.eat();    // 输出：Cat is eating.
+</code></pre>
+<p><strong>二，泛型</strong><br />
+Java中的泛型也是一种多态实现方式。它可以让代码更加通用化，可以将代码中的类型参数化，减少代码的重复和冗余。具体来说，泛型可以让代码在编译时就能检查出类型不匹配的错误，提高代码的安全性和可维护性。</p>
+<p>比如，我们可以定义一个泛型类Pair，它包含了两个元素：</p>
+<pre><code class="language-java">public class Pair&lt;T, S&gt; {
+    private T first;
+    private S second;
+
+    public Pair(T first, S second) {
+        this.first = first;
+        this.second = second;
+    }
+
+    public T getFirst() {
+        return first;
+    }
+
+    public S getSecond() {
+        return second;
+    }
+
+    public void setFirst(T first) {
+        this.first = first;
+    }
+
+    public void setSecond(S second) {
+        this.second = second;
+    }
+}
+</code></pre>
+<p>在这个例子中，T和S是类型参数，可以在使用Pair类时指定具体的类型。比如，我们可以定义一个Pair对象，其中第一个元素是整数类型，第二个元素是字符串类型：</p>
+<pre><code class="language-java">Pair&lt;Integer, String&gt; pair = new Pair&lt;&gt;(1, &quot;hello&quot;);
+</code></pre>
+<p>这样，我们就可以通过泛型实现代码的复用和通用化，避免了代码的重复和冗余。</p>
+<p><strong>三，基于接口的回调</strong><br />
+基于接口的回调也是多态的一种应用方式。它可以让代码更加灵活，让不同的对象之间实现交互和协作。</p>
+<p>比如，我们可以定义一个回调接口，其中定义了回调方法onComplete：</p>
+<pre><code class="language-java">public interface Callback {
+    void onComplete();
+}
+</code></pre>
+<p>然后定义一个任务类Task，其中包含了一个回调接口：</p>
+<pre><code class="language-java">public class Task {
+    private Callback callback;
+
+    public Task(Callback callback) {
+        this.callback = callback;
+    }
+
+    public void execute() {
+        // 执行任务
+        // ...
+
+        // 任务完成后调用回调方法
+        callback.onComplete();
+    }
+}
+</code></pre>
+<p>在这个例子中，Task类包含了一个回调接口，当任务完成后会调用回调方法onComplete。这样，我们就可以通过实现回调接口来实现不同对象之间的交互和协作：</p>
+<pre><code class="language-java">public class MyClass implements Callback {
+    @Override
+    public void onComplete() {
+        // 处理任务完成后的逻辑
+        // ...
+    }
+}
+
+Task task = new Task(new MyClass());
+task.execute();
+</code></pre>
+<p>这样，当任务完成后，就会调用MyClass对象中的onComplete方法，实现了不同对象之间的交互和协作。</p>
+<hr />
+<h2><a id="%E7%BB%93%E8%AE%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>结论</h2>
+<p>多态是Java中非常重要的概念之一，它可以提高代码的可复用性、可维护性和扩展性。在实际开发中，我们经常使用多态来实现代码的通用化和灵活性。理解多态的原理和应用场景，可以让我们编写出更加优秀的Java程序。</p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	 
+
+	  
+
+	  
+
+	</div>
+</div>        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>

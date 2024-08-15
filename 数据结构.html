@@ -1,0 +1,1525 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>  
+	  
+  	数据结构 - 小吴日志
+  	
+	</title>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="atom.xml" rel="alternate" title="小吴日志" type="application/atom+xml">
+
+	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<script src="asset/javascripts/jquery.min.js"></script>
+	<script src="asset/highlightjs/highlight.pack.js"></script>
+	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
+	<style type="text/css">
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+	</style>
+	
+	<style type="text/css">
+	.container .left-col{ opacity: 1;}
+	#pagenavi a{ font-size: 1.3em;}
+	#pagenavi .next:before{ top: 3px;}
+	#pagenavi .prev:before{ top: 3px;}
+	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
+	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+	#header .subtitle {
+		line-height: 1.2em;
+		padding-top: 8px;
+	}
+	article pre{ background: none; border: none; padding: 0;}
+	article .entry-content{text-align: left;}
+	.share-comment{ padding: 25px 0px; clear: both;}
+	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
+
+	</style>
+  
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner">
+				 
+				 	<div class="profilepic">
+						<img src="https://lskywhw.oss-cn-hangzhou.aliyuncs.com/2024/05/10/663df3f363cf2.png" style="width:160px;">
+					</div>
+            	
+					
+					<h1><a href="index.html">小吴日志</a></h1>
+					<p class="subtitle"></p>
+					<nav id="main-nav">
+						<ul class="main">
+						
+						  <li id=""><a target="_self" href="index.html">首页</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">文章</a></li>
+						
+						  <li id=""><a target="_self" href="数据结构.html">数据结构</a></li>
+						
+						  <li id=""><a target="_self" href="Java.html">Java知识</a></li>
+						
+						  <li id=""><a target="_self" href="网络.html">网络知识</a></li>
+						
+						  <li id=""><a target="_self" href="感悟与思考.html">读书笔记</a></li>
+						
+						</ul>
+					</nav>
+
+					<nav id="sub-nav">
+						<div class="social">
+
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/2949-java" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:3351738701@qq.com" title="Email">Email</a>
+
+								
+
+								<a class="rss" href="atom.xml" title="RSS">RSS</a>
+							
+						</div>
+					</nav>
+				</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			<div class="mid-col-container"> <div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
+
+
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2024-08-15T13:48:24+08:00" itemprop="datePublished">2024/08/15</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>数据结构</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="17237009048056.html" itemprop="url">
+		数据结构——栈（详解）</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h2><a id="%E4%B8%80%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一.栈的定义</h2>
+<blockquote>
+<p>栈（Stack）是一种常见的数据结构，它是一种“后进先出”（Last In First Out，LIFO）的数据结构。栈可以看做是一种特殊的线性表，只能在栈顶进行插入和删除操作。栈顶是允许操作的，而栈底是固定的。</p>
+</blockquote>
+<h2><a id="%E4%BA%8C%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二.栈的基本操作</h2>
+<p>栈的基本操作包括：入栈（Push）、出栈（Pop）、取栈顶元素（Top）和判空（IsEmpty）等。</p>
+<h3><a id="1%E9%A1%BA%E5%BA%8F%E6%A0%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.顺序栈</h3>
+<h4><a id="1-1%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1顺序栈的基本概念</h4>
+<blockquote>
+<p>顺序栈是一种使用数组实现的栈，也称为数组栈。其基本思路是通过数组来存储栈中的元素，并通过栈顶指针指示栈顶元素在数组中的位置。顺序栈具有以下特点：</p>
+<ol>
+<li>存储结构：使用数组作为底层存储结构，数组的每个元素存储栈中的一个元素；</li>
+<li>操作受限：栈只能从栈顶插入和删除元素，不支持在栈中间插入和删除元素；</li>
+<li>先进后出：栈的元素遵循“先进后出”（Last In First Out, LIFO）的原则，即后插入的元素先被删除；</li>
+<li>顺序访问：只能从栈顶开始访问栈中的元素，不能从栈底或中间位置访问元素。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>顺序栈的实现非常简单，可以使用数组和栈顶指针两个变量来实现。顺序栈的主要操作包括初始化、入栈、出栈、获取栈顶元素、判断栈是否为空以及获取栈中元素的数量等。由于顺序栈的存储结构是数组，因此在使用过程中需要考虑数组大小的限制，当栈中元素数量超过数组大小时，需要对数组进行扩容。<br />
+ <br />
+注意：除了遍历栈中的元素的操作时间复杂度为O(n)外，其余：入栈、出栈、取栈顶元素、判断栈是否为空操作的时间复杂度均为O(1)。</p>
+</blockquote>
+<p><img src="media/17237009048056/16864768613356.png" alt="" /></p>
+<h4><a id="1-2%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2顺序栈的基本操作</h4>
+<blockquote>
+<p>相关的头文件</p>
+</blockquote>
+<pre><code class="language-c">#include&lt;math.h&gt;
+#include &lt;iostream&gt;
+typedef int SElemType;
+#define STACK_INIT_SIZE 10 //存储空间初始分配量
+#define STACK_INCREMENT 2  //存储空间分配增量
+</code></pre>
+<blockquote>
+<p>定义顺序栈结构体</p>
+</blockquote>
+<pre><code class="language-c">struct SqStack{ //定义顺序栈结构体
+    SElemType *base; //栈底指针
+    SElemType *top;  //栈顶指针
+    int stacksize;   //栈可用的最大容量
+};
+</code></pre>
+<blockquote>
+<p>初始化栈</p>
+</blockquote>
+<pre><code class="language-c">void InitStack(SqStack &amp;S){ //初始化栈S
+    S.base = (SElemType*)malloc(STACK_INIT_SIZE*sizeof(SElemType)); //给栈分配空间
+    if(!S.base) //如果分配失败
+        exit(OVERFLOW); //则退出程序
+    S.top = S.base; //栈顶指针和栈底指针指向同一个位置
+    S.stacksize = STACK_INIT_SIZE; //初始化栈的最大容量
+}
+</code></pre>
+<blockquote>
+<p>销毁栈</p>
+</blockquote>
+<pre><code class="language-c">void DestoryStack(SqStack &amp;S){ //销毁栈S
+    free(S.base); //释放栈S占用的空间
+    S.top = S.base = NULL; //将栈底指针和栈顶指针都置为空
+    S.stacksize = 0; //将栈的最大容量清零
+}
+</code></pre>
+<blockquote>
+<p>清空栈</p>
+</blockquote>
+<pre><code class="language-c">void ClearStack(SqStack &amp;S){ //清空栈S
+    S.top = S.base; //将栈顶指针指向栈底指针，实现清空栈的效果
+}
+</code></pre>
+<blockquote>
+<p>判断栈是否为空</p>
+</blockquote>
+<pre><code class="language-c">int StackEmpty(SqStack S){ //判断栈S是否为空
+    if(S.top == S.base) //如果栈顶指针和栈底指针指向同一个位置，说明栈为空
+        return true;
+    else
+        return false;
+}
+</code></pre>
+<blockquote>
+<p>返回栈长度</p>
+</blockquote>
+<pre><code class="language-c">int StackLength(SqStack S){ //求栈S的长度
+    return S.top - S.base; //栈顶指针减去栈底指针的差即为栈的长度
+}
+</code></pre>
+<blockquote>
+<p>获取栈顶元素值</p>
+</blockquote>
+<pre><code class="language-c">int GetTop(SqStack S,SElemType &amp;e){ //获取栈顶元素，并将其存储到e中
+    if (S.top &gt; S.base){ //如果栈不为空
+        e = *(S.top-1); //将栈顶元素存储到e中
+        return true;
+    }
+    else
+        return false;
+}
+</code></pre>
+<blockquote>
+<p>入栈</p>
+</blockquote>
+<pre><code class="language-c">void Push(SqStack &amp;S,SElemType e){ //在栈顶插入元素e
+    if(S.top - S.base == S.stacksize){ //如果栈满
+        S.base = (SElemType*)realloc(S.base, (S.stacksize+STACK_INCREMENT)*sizeof(SElemType)); //给栈扩容
+        if(!S.base) //如果扩容失败
+            exit(OVERFLOW); //则退出程序
+        S.top = S.base + S.stacksize; //将栈顶指针指向扩容后的栈顶
+        S.stacksize += STACK_INCREMENT; //更新栈的最大容量
+    }
+    *(S.top)++ = e; //将元素e插入栈顶，并将栈顶指针上移一位
+}
+</code></pre>
+<blockquote>
+<p>出栈</p>
+</blockquote>
+<pre><code class="language-c">// 如果栈为空，返回false；否则返回true
+int Pop(SqStack &amp;S,SElemType &amp;e){
+    if(S.top == S.base) //栈空
+        return false;
+    e = *(--S.top); //将栈顶元素赋给e，栈顶指针下移一个存储单元
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>遍历打印栈内元素</p>
+</blockquote>
+<pre><code class="language-c">// 定义一个函数visit，用于打印元素
+void visit(SElemType e)
+{
+    std::cout &lt;&lt; e &lt;&lt; &quot; &quot;;
+}
+ 
+// 定义一个函数用于遍历栈中的元素并对每个元素执行visit函数
+void StackTraverse(SqStack S,void(*visit)(SElemType)){
+    SElemType *p = S.base;
+    while(S.top &gt; p) //p指向栈元素
+        visit(*p++); //对该栈调用visit()，p指针上移一个存储单元
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+<blockquote>
+<p>主函数</p>
+</blockquote>
+<pre><code class="language-c">int main() {
+    int j;
+    SqStack s;
+    SElemType e;
+    InitStack(s);
+    for(j = 1; j &lt;= 12; j++)
+        Push(s, j);
+    printf(&quot;栈中元素依次为\n&quot;);
+    StackTraverse(s, visit);
+    Pop(s,e);
+    printf(&quot;弹出的栈顶元素e = %d\n&quot;,e);
+    printf(&quot;栈空否? %d (1:空 0:否)\n&quot;,StackEmpty(s));
+    GetTop(s, e);
+    printf(&quot;栈顶元素e = %d,栈的长度为%d\n&quot;,e,StackLength(s));
+    ClearStack(s);
+    printf(&quot;清空栈后，栈空否? %d (1:空 0:否)\n&quot;,StackEmpty(s));
+    DestoryStack(s);
+    printf(&quot;销毁栈后，s.top = %u,s.base = %u,s.stacksize = %d\n&quot;,s.top,s.base,s.stacksize);
+}
+</code></pre>
+<h3><a id="2%E6%A0%88%E9%93%BE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.栈链</h3>
+<h4><a id="2-1%E6%A0%88%E9%93%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1栈链的基本概念</h4>
+<blockquote>
+<p>链栈是一种基于链表实现的栈，其特点是无需事先分配固定长度的存储空间，栈的长度可以动态增长或缩小，避免了顺序栈可能存在的空间浪费和存储溢出问题。<br />
+ <br />
+链栈中的每个元素称为“节点”，每个节点包括两个部分：数据域和指针域。数据域用来存储栈中的元素值，指针域用来指向栈顶元素所在的节点。<br />
+ <br />
+链栈的基本操作包括入栈、出栈、获取栈顶元素和遍历等，相比顺序栈而言，链栈的实现难度稍高，但其在某些情况下有着更好的灵活性和效率，特别适用于在动态存储空间较为紧缺的场合。<br />
+ <br />
+<strong>链栈的进栈push和出栈pop操作都很简单，时间复杂度均为O(1)<br />
+注意：如果栈的使用过程中元素变化不可预料,那么最好使用链栈,反之,如果它的变化在可控范围内,建议使用顺序栈。</strong></p>
+</blockquote>
+<h4><a id="2-1%E9%93%BE%E6%A0%88%E7%9A%84%E7%A7%8D%E7%B1%BB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1链栈的种类</h4>
+<blockquote>
+<p>链栈按照链表的实现方式可分为单链栈和双链栈。实际应用通常采用单链栈。<br />
+ <br />
+单链栈使用单链表实现，每个节点只含有一个指向下一个节点的指针。因此，单链栈只能从栈顶进行插入和删除操作。</p>
+</blockquote>
+<p><img src="media/17237009048056/16864773632261.jpg" alt="" /><br />
+<strong>双链栈</strong>使用双向链表实现，每个节点同时包含指向前一个节点和后一个节点的指针。因此，双链栈既可以从栈顶进行插入和删除操作，也可以从栈底进行插入和删除操作，使得操作更加灵活。</p>
+<p><img src="media/17237009048056/16864773978255.png" alt="" /></p>
+<h4><a id="2-3%E9%93%BE%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3链栈的基本操作</h4>
+<blockquote>
+<p>单链栈的类型定义</p>
+</blockquote>
+<pre><code class="language-c">// 定义链栈的结构体
+typedef struct StackNode{
+    SElemType data;
+    StackNode *next;
+}StackNode,*LinkStack;
+</code></pre>
+<blockquote>
+<p>单链栈初始化</p>
+</blockquote>
+<pre><code class="language-c">// 初始化链栈
+int InitStack(LinkStack &amp;S){
+    S = NULL;
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>判断单链栈是否为空</p>
+</blockquote>
+<pre><code class="language-c">// 判断链栈是否为空
+bool StackEmpty(LinkStack S){
+    return S == NULL;
+}
+</code></pre>
+<blockquote>
+<p>单链栈入栈</p>
+</blockquote>
+<p><img src="media/17237009048056/16864775546491.png" alt="" /></p>
+<pre><code class="language-c">// 入栈
+bool Push(LinkStack &amp;S, SElemType e){
+    StackNode *p = (StackNode*)malloc(sizeof(StackNode));
+    if(!p){
+        return false; // 分配内存失败
+    }
+    p-&gt;data = e;
+    p-&gt;next = S;
+    S = p;
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>单链栈出栈</p>
+</blockquote>
+<p><img src="media/17237009048056/16864775984672.png" alt="" /></p>
+<pre><code class="language-c">// 出栈
+bool Pop(LinkStack &amp;S, SElemType &amp;e){
+    if(StackEmpty(S)){
+        return false; // 栈为空
+    }
+    StackNode *p = S;
+    e = p-&gt;data;
+    S = S-&gt;next;
+    free(p);
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>获取单链栈栈顶元素</p>
+</blockquote>
+<pre><code class="language-c">// 获取栈顶元素
+bool GetTop(LinkStack S, SElemType &amp;e){
+    if(StackEmpty(S)){
+        return false; // 栈为空
+    }
+    e = S-&gt;data;
+    return true;
+}
+</code></pre>
+<blockquote>
+<p>清空单链栈</p>
+</blockquote>
+<pre><code class="language-c">// 清空栈
+void ClearStack(LinkStack &amp;S){
+    StackNode *p;
+    while(S){
+        p = S;
+        S = S-&gt;next;
+        free(p);
+    }
+}
+</code></pre>
+<blockquote>
+<p>销毁单链栈</p>
+</blockquote>
+<pre><code class="language-c">// 销毁栈
+void DestroyStack(LinkStack &amp;S){
+    ClearStack(S);
+    S = NULL;
+}
+</code></pre>
+<blockquote>
+<p>遍历单链栈</p>
+</blockquote>
+<pre><code class="language-c">// 遍历栈并打印
+void StackTraverse(LinkStack S){
+    StackNode *p = S;
+    while(p){
+        printf(&quot;%d &quot;, p-&gt;data);
+        p = p-&gt;next;
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+<blockquote>
+<p>测试代码</p>
+</blockquote>
+<pre><code class="language-c">#include &lt;iostream&gt;
+ 
+int main() {
+    LinkStack S;
+    InitStack(S);
+    int e;
+    Push(S, 1);
+    Push(S, 2);
+    Push(S, 3);
+    printf(&quot;现在栈内元素为(后进先出)：&quot;);
+    StackTraverse(S);
+    printf(&quot;栈顶元素为：%d\n&quot;, GetTop(S,e));
+    Pop(S,e);
+    printf(&quot;现在栈内元素为(后进先出)：&quot;);
+    StackTraverse(S);
+    printf(&quot;弹出一个元素后，栈顶元素为：%d\n&quot;, GetTop(S,e));
+    ClearStack(S);
+    if (StackEmpty(S)) {
+        printf(&quot;栈为空\n&quot;);
+    } else {
+        printf(&quot;栈不为空\n&quot;);
+    }
+    DestroyStack(S);
+    return 0;
+}
+</code></pre>
+<h2><a id="%E4%B8%89%E6%A0%88%E7%9A%84%E5%BA%94%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三.栈的应用</h2>
+<h3><a id="1%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.函数递归调用</h3>
+<blockquote>
+<p>函数递归调用时，计算机会把函数调用时需要的参数和返回地址等信息放入栈中，函数执行完毕后再从栈中取回这些信息。</p>
+</blockquote>
+<pre><code class="language-c">//以汉诺塔问题为例展示栈的递归调用
+#include &lt;iostream&gt;
+ 
+int c = 0;
+void move(char x,int n,char z){
+    printf(&quot;第%i步:将%i号盘从%c移到%c\n&quot;, ++c, n, x, z);
+}
+ 
+void hanoi(int n, char x, char y, char z){
+    if(n==1){
+        move(x, 1, z);
+    }
+    else{
+        hanoi(n-1, x, z, y);
+        move(x, n, z);
+        hanoi(n-1, y, x, z);
+    }
+}
+ 
+int main() {
+    int n;
+    printf(&quot;三个塔座为a,b,c,圆盘最初在a座，借助b座移到c座，请输入圆盘数量：&quot;);
+    scanf(&quot;%d&quot;,&amp;n);
+    hanoi(n, 'a', 'b', 'c');
+}
+</code></pre>
+<p><img src="media/17237009048056/16864779117442.jpg" alt="" /></p>
+<p><img src="media/17237009048056/16864779114397.png" alt="" /></p>
+<h3><a id="2%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E8%A7%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.表达式求解</h3>
+<blockquote>
+<p>在编译器中，中缀表达式转为后缀表达式后，可以使用栈来实现后缀表达式的求值。</p>
+</blockquote>
+<pre><code class="language-c">char Precede(SElemType t1, SElemType t2)
+{ 
+  char f;
+  switch(t2)
+  { case '+':
+    case '-': if(t1=='(' || t1=='\n')
+                f='&lt;'; 
+              else
+                f='&gt;'; 
+              break;
+    case '*':
+    case '/': if(t1=='*' || t1=='/' || t1==')')
+                f='&gt;'; 
+              else
+                f='&lt;'; 
+              break;
+    case '(': if(t1==')')
+              { printf(&quot;括号不匹配\n&quot;);
+                exit(OVERFLOW);
+              }
+              else
+                f='&lt;'; 
+              break;
+    case ')': switch(t1)
+              { case '(': f='='; 
+                          break;
+                case'\n': printf(&quot;缺乏左括号\n&quot;);
+                          exit(OVERFLOW);
+                default : f='&gt;'; 
+              }
+              break;
+    case'\n': switch(t1)
+              { case'\n': f='='; 
+                          break;
+                case '(': printf(&quot;缺乏右括号\n&quot;);
+                          exit(OVERFLOW);
+                default : f='&gt;'; 
+              }
+  }
+  return f;
+}
+Status In(SElemType c)
+{ 
+  switch(c)
+  { case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '(':
+    case ')':
+    case'\n': return TRUE;
+    default : return FALSE;
+  }
+}
+SElemType Operate(SElemType a, SElemType theta, SElemType b)
+{ 
+  switch(theta)
+  { case '+': return a+b;
+    case '-': return a-b;
+    case '*': return a*b;
+  }
+  return a/b; 
+}
+ 
+ 
+//  表达式求值（范围为int类型，输入负数要用（0-正数）表示）
+typedef int SElemType; 
+SElemType EvaluateExpression()
+{ 
+  SqStack OPTR, OPND;
+  SElemType a, b, d, x; 
+  char c; 
+  c=getchar(); 
+  InitStack(OPTR); 
+  InitStack(OPND);
+  Push(OPTR, '\n'); 
+  GetTop(OPTR, x); 
+  while(c!='\n' || x!='\n') 
+  { if(In(c)) 
+      switch(Precede(x, c)) 
+      { case'&lt;': Push(OPTR, c); 
+                 c=getchar(); 
+                 break;
+        case'=': Pop(OPTR, x); 
+                 c=getchar(); 
+                 break;
+        case'&gt;': Pop(OPTR, x); 
+                 Pop(OPND, b); 
+                 Pop(OPND, a);
+                 Push(OPND, Operate(a, x, b)); 
+      }
+    else if(c&gt;='0' &amp;&amp; c&lt;='9') 
+    { d=0;
+      while(c&gt;='0' &amp;&amp; c&lt;='9') 
+      { d=d*10+c-'0';
+        c=getchar();
+      }
+      Push(OPND, d); 
+    }
+    else 
+    { printf(&quot;出现非法字符\n&quot;);
+      DestroyStack(OPTR);
+      DestroyStack(OPND);
+      exit(OVERFLOW);
+    }
+    GetTop(OPTR, x); 
+  }
+  Pop(OPND, x); 
+  if(!StackEmpty(OPND)) 
+  { printf(&quot;表达式不正确\n&quot;);
+    DestroyStack(OPTR);
+    DestroyStack(OPND);
+    exit(OVERFLOW);
+  }
+  DestroyStack(OPTR);
+  DestroyStack(OPND);
+  return x;
+}
+void main()
+{
+  printf(&quot;请输入算术表达式，负数要用（0-正数）表示\n&quot;);
+  printf(&quot;%d\n&quot;, EvaluateExpression());
+}
+</code></pre>
+<h3><a id="3%E6%95%B0%E5%80%BC%E8%BD%AC%E6%8D%A2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.数值转换</h3>
+<blockquote>
+<p>可以使用栈来进行二进制和十进制等进制之间的转换</p>
+</blockquote>
+<pre><code class="language-c">#define N 8 
+typedef int SElemType; 
+ 
+void conversion() 
+{ 
+  SqStack s;
+  unsigned n; 
+  SElemType e;
+  InitStack(s); 
+  printf(&quot;将十进制整数n转换为%d进制数，请输入：n（≥0）=&quot;, N);
+  scanf(&quot;%u&quot;, &amp;n); 
+  while(n) 
+  { Push(s, n%N); 
+    n=n/N;
+  }
+  while(!StackEmpty(s)) 
+  { Pop(s, e); 
+    printf(&quot;%d&quot;, e); 
+  }
+  printf(&quot;\n&quot;);
+}
+void main()
+{
+  conversion();
+}
+</code></pre>
+<h3><a id="4%E8%BF%B7%E5%AE%AB%E6%B1%82%E8%A7%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.迷宫求解</h3>
+<blockquote>
+<p>在迷宫求解中，可以使用栈来实现深度优先搜索算法。</p>
+</blockquote>
+<pre><code class="language-c">// 利用栈求解迷宫问题（只输出一个解）
+struct PosType 
+{ int x; 
+  int y; 
+};
+// 全局变量
+PosType begin, end; 
+PosType direc[4]={{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+// {行增量, 列增量}，移动方向依次为东南西北
+#define MAXLENGTH 25 
+typedef int MazeType[MAXLENGTH][MAXLENGTH]; 
+MazeType m; 
+int x, y; 
+void Print()
+{ 
+  int i, j;
+  for(i=0; i&lt;x; i++)
+  { for(j=0; j&lt;y; j++)
+      printf(&quot;%3d&quot;, m[i][j]);
+    printf(&quot;\n&quot;);
+  }
+}
+void Init()
+{ 
+  int i, j, x1, y1;
+  printf(&quot;请输入迷宫的行数,列数（包括外墙）：&quot;);
+  scanf(&quot;%d,%d&quot;, &amp;x, &amp;y);
+ 
+  for(i=0; i&lt;y; i++) 
+  { m[0][i]=0; 
+    m[x-1][i]=0; 
+  }
+  for(i=1; i&lt;x-1; i++)
+  { m[i][0]=0; 
+    m[i][y-1]=0; 
+  }
+  for(i=1; i&lt;x-1; i++)
+    for(j=1; j&lt;y-1; j++)
+      m[i][j]=1; 
+  printf(&quot;请输入迷宫内墙单元数：&quot;);
+  scanf(&quot;%d&quot;, &amp;j);
+  printf(&quot;请依次输入迷宫内墙每个单元的行数,列数：\n&quot;);
+  for(i=1; i&lt;=j; i++)
+  { scanf(&quot;%d,%d&quot;, &amp;x1, &amp;y1);
+    m[x1][y1]=0; 
+  }
+  printf(&quot;迷宫结构如下：\n&quot;);
+  Print();
+  printf(&quot;请输入入口的行数,列数：&quot;);
+  scanf(&quot;%d,%d&quot;, &amp;begin.x, &amp;begin.y);
+  printf(&quot;请输入出口的行数,列数：&quot;);
+  scanf(&quot;%d,%d&quot;, &amp;end.x, &amp;end.y);
+}
+int curstep=1; 
+struct SElemType 
+{ int ord; 
+  PosType seat; 
+  int di; 
+};
+ 
+ 
+// 定义墙元素值为0，可通过路径为1，经试探不可通过路径为-1，通过路径为足迹
+Status Pass(PosType b)
+{ 
+  if(m[b.x][b.y]==1)
+    return OK;
+  else
+    return ERROR;
+}
+void FootPrint(PosType b)
+{ 
+  m[b.x][b.y]=curstep;
+}
+void NextPos(PosType &amp;b, int di)
+{ 
+ 
+  b.x+=direc[di].x;
+  b.y+=direc[di].y;
+}
+void MarkPrint(PosType b)
+{ 
+  m[b.x][b.y]=-1;
+}
+Status MazePath(PosType start, PosType end) 
+{ 
+  
+  PosType curpos=start; 
+  SqStack S; 
+  SElemType e; 
+  InitStack(S); 
+  do
+  { if(Pass(curpos)) 
+    { FootPrint(curpos); 
+      e.ord=curstep; 
+      e.seat=curpos; 
+      e.di=0; 
+      Push(S, e); 
+      curstep++; 
+      if(curpos.x==end.x &amp;&amp; curpos.y==end.y) 
+        return TRUE;
+      NextPos(curpos, e.di); 
+    }
+    else 
+    { if(!StackEmpty(S)) 
+      { Pop(S, e); 
+        curstep--; 
+        while(e.di==3 &amp;&amp; !StackEmpty(S)) 
+        { MarkPrint(e.seat); 
+          Pop(S, e); 
+          curstep--; 
+        }
+        if(e.di&lt;3) 
+        { e.di++; 
+          Push(S, e); 
+          curstep++; 
+          curpos=e.seat; 
+          NextPos(curpos,e.di);
+        }
+      }
+    }
+  }while(!StackEmpty(S));
+  return FALSE;
+}
+void main()
+{
+  Init(); 
+  if(MazePath(begin, end)) 
+  { printf(&quot;此迷宫从入口到出口的一条路径如下：\n&quot;);
+    Print(); 
+  }
+  else
+    printf(&quot;此迷宫没有从入口到出口的路径\n&quot;);
+}
+</code></pre>
+<h2><a id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考资料</h2>
+<ol>
+<li>严蔚敏、吴伟民：《数据结构（C语言版）》</li>
+<li>高一凡：《数据结构算法解析》</li>
+<li>程杰：《大话数据结构》</li>
+<li>王道论坛：《数据结构考研复习指导》</li>
+</ol>
+<h2><a id="%E6%88%91%E7%9A%84csdn%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>我的CSDN文章链接：</h2>
+<p><a href="http://t.csdn.cn/e16gW">数据结构-栈</a></p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2024-08-15T13:48:24+08:00" itemprop="datePublished">2024/08/15</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>数据结构</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="17237009048184.html" itemprop="url">
+		数据结构第二章——单链表</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h3><a id="%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%8D%95%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>线性表的单链表存储结构</h3>
+<pre><code class="language-c">#include &lt;string&gt;
+#define ERROR 0  // 宏定义，错误返回值
+#define TRUE 1   // 宏定义，正确返回值
+// 链表节点结构体
+typedef struct LNode{
+    int data;        // 数据域
+    LNode *next;     // 指向下一个节点的指针
+}LNode,*LinkList;
+</code></pre>
+<h3><a id="%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8D%95%E9%93%BE%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>初始化单链表</h3>
+<pre><code class="language-c">// 初始化链表
+void InitList(LinkList &amp;L){
+    L = (LinkList)malloc(sizeof(LNode));  // 分配内存
+    if(!L)
+        exit(-1);    // 内存分配失败
+    L-&gt;next = NULL;   // 将链表的头结点的next指针置为NULL
+}
+</code></pre>
+<h3><a id="%E5%A4%B4%E6%8F%92%E6%B3%95%E5%88%9B%E5%BB%BA%E5%8D%95%E9%93%BE%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>头插法创建单链表</h3>
+<pre><code class="language-c">//前插法
+void CreatListH(LinkList &amp;L,int n){
+    int i;
+    LinkList p;
+    L = (LinkList)malloc(sizeof(LNode)); // 创建头结点
+    L-&gt;next = NULL; // 将头结点的next指针置空
+    printf(&quot;请输入%d个数据\n&quot;,n);
+    for(i=n;i&gt;0;--i){ // 循环读入数据并插入链表
+        p = (LinkList)malloc(sizeof(LNode)); // 创建新结点
+        scanf(&quot;%d&quot;,&amp;p-&gt;data); // 读入数据
+        p-&gt;next = L-&gt;next; // 将新结点的next指针指向头结点的next指针指向的第一个结点
+        L-&gt;next = p; // 将头结点的next指针指向新结点
+    }
+}
+</code></pre>
+<h3><a id="%E5%B0%BE%E6%8F%92%E6%B3%95%E5%88%9B%E5%BB%BA%E5%8D%95%E9%93%BE%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>尾插法创建单链表</h3>
+<pre><code class="language-c">void CreateLinkR(LinkList &amp;L,int n){
+    int i;
+    LinkList p ,q;
+    L = (LinkList)malloc(sizeof(LNode));  // 为头结点分配内存空间
+    L-&gt;next = NULL;  // 头结点指向NULL
+    q = L;  // q指向头结点，q将作为尾指针用来指向链表的最后一个节点
+    printf(&quot;请输入%d个数据\n&quot;,n);
+    for(i=1;i&lt;=n;i++){
+        p = (LinkList)malloc(sizeof(LNode));  // 为新节点分配内存空间
+        scanf(&quot;%d&quot;,&amp;p-&gt;data);  // 输入节点数据
+        q-&gt;next = p;  // 将q的后继节点指向新节点p
+        q = q-&gt;next;  // q指向新节点p，更新q为新的尾指针
+    }
+    p-&gt;next = NULL;  // 新节点p指向NULL，表示链表已结束
+}
+</code></pre>
+<h3><a id="%E9%94%80%E6%AF%81%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%88%E5%8D%95%E9%93%BE%E8%A1%A8%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>销毁线性表（单链表）</h3>
+<pre><code class="language-c">// 销毁链表
+void DestroyList(LinkList &amp;L){
+    LinkList q;
+    while(L){   // 循环直到L为NULL
+        q = L-&gt;next;   // q指向首元结点
+        free(L);   // 释放头结点
+        L = q;   // 将L指向原首元结点，现头结点
+    }
+}
+</code></pre>
+<h3><a id="%E6%B8%85%E7%A9%BA%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%88%E5%8D%95%E9%93%BE%E8%A1%A8%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>清空线性表（单链表）</h3>
+<pre><code class="language-c">// 清空链表，不改变L
+void ClearList(LinkList L){
+    LinkList p = L-&gt;next;   // p指向第一个节点
+    L-&gt;next = NULL;   // 将链表的头结点的next指针域置为NULL
+    DestroyList(p);   // 销毁p所指的单恋表
+}
+</code></pre>
+<h3><a id="%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>判断链表是否为空</h3>
+<pre><code class="language-c">// 判断链表是否为空
+bool ListEmpty(LinkList L){
+    if(L-&gt;next)//非空
+        return ERROR;   // 存在节点，链表非空
+    else
+        return TRUE;   // 不存在节点，链表为空
+}
+</code></pre>
+<h3><a id="%E5%88%A4%E6%96%AD%E9%93%BE%E8%A1%A8%E9%95%BF%E5%BA%A6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>判断链表长度</h3>
+<pre><code class="language-c">// 获取链表长度
+int ListLength(LinkList L){
+    int i = 0;//计数器初值为0
+    LinkList p = L-&gt;next;   // p指向第一个节点
+    while(p){//未到表尾
+        i++;//计数器+1
+        p = p-&gt;next;   //p指向下一个节点
+    }
+    return i;
+}
+</code></pre>
+<h3><a id="%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%85%83%E7%B4%A0%E5%80%BC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取指定位置的元素值</h3>
+<pre><code class="language-c">// 获取链表第i个元素值
+int GetElem(LinkList L,int i,int &amp;e){
+    int j = 1;//计数器初值为1
+    LinkList p = L-&gt;next;   // p指向第一个节点
+    while(p &amp;&amp; j&lt;i){   // 循环直到p为NULL或者p指向第i个结点
+        j++;  //计数器+1
+        p = p-&gt;next;   //p指向下一个节点
+    }
+    if(!p || j&gt;i)  //第i个节点不存在
+        return ERROR;   // i小于1或大于链表长度，返回错误
+    else
+        e = p-&gt;data;   // 将p所指向的节点的值赋给e
+    return TRUE;
+}
+</code></pre>
+<h3><a id="%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>定位元素</h3>
+<pre><code class="language-c">// 定位元素
+int LocateElem(LinkList L, int e, bool (*compare)(int, int)) {
+    int i = 0;                // 计数器
+    LinkList p = L-&gt;next;      // 头结点指向第一个节点
+    while(p){
+        i++;                  // 计数器自增
+        if(compare(p-&gt;data,e))  // 如果找到了目标元素
+            return i;         // 返回目标元素所在位置
+        p = p-&gt;next;          // 遍历下一个节点
+    }
+    return 0;                 // 如果没有找到目标元素，返回0
+}
+</code></pre>
+<h3><a id="%E8%8E%B7%E5%8F%96%E5%8D%95%E9%93%BE%E8%A1%A8%E5%89%8D%E9%A9%B1%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取单链表前驱元素</h3>
+<pre><code class="language-c">// 获取指定元素的前驱元素
+bool PriorElem(LinkList L,int cru_e,int &amp;pre_e){
+    LinkList q,p = L-&gt;next;    // p指向头结点的下一个节点，q指向p的下一个节点
+    while(p &amp;&amp; p-&gt;next){       // 当p和p的下一个节点不为空时
+        q = p-&gt;next;           // q指向p的下一个节点
+        if(q-&gt;data == cru_e){  // 如果q的值等于要查找的元素
+            pre_e = p-&gt;data;   // 则p的值为目标元素的前驱元素
+            return TRUE;       // 返回true
+        }
+        p = q;                 // p指向q，继续遍历
+    }
+    return ERROR;              // 没有找到目标元素，返回ERROR
+}
+</code></pre>
+<h3><a id="%E8%8E%B7%E5%8F%96%E5%8D%95%E9%93%BE%E8%A1%A8%E5%90%8E%E7%BB%A7%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取单链表后继元素</h3>
+<pre><code class="language-c">// 获取指定元素的后继元素
+bool NextElem(LinkList L,int cur_e,int &amp;next_e){
+    LinkList p = L-&gt;next;      // p指向头结点的下一个节点
+    while(p &amp;&amp; p-&gt;next){       // 当p和p的下一个节点不为空时
+        if(p-&gt;data == cur_e){  // 如果p的值等于要查找的元素
+            next_e = p-&gt;next-&gt;data;  // 则p的下一个节点的值为目标元素的后继元素
+            return TRUE;       // 返回true
+        }
+        p = p-&gt;next;           // p指向下一个节点，继续遍历
+    }
+    return ERROR;              // 没有找到目标元素，返回ERROR
+}
+</code></pre>
+<h3><a id="%E5%9C%A8%E5%8D%95%E9%93%BE%E8%A1%A8%E4%B8%AD%E4%BB%BB%E6%84%8F%E4%BD%8D%E7%BD%AE%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>在单链表中任意位置插入元素</h3>
+<pre><code class="language-c">bool InsertList(LinkList L,int i,int e){
+    int j = 0; // 用于记录链表中已经遍历过的结点个数
+    LinkList q,p = L; // q用于指向要插入的新结点，p用于指向当前结点的前一个结点
+    while (p &amp;&amp; j&lt;i-1) { // 循环找到第i-1个结点
+        j++;
+        p = p-&gt;next;
+    }
+    if(!p||j&gt;i-1) // 判断是否找到了第i-1个结点，如果没有或者已经超出链表长度则返回错误
+        return ERROR;
+    q = (LinkList)malloc(sizeof(LNode)); // 创建新结点
+    q-&gt;data = e; // 给新结点赋值
+    q-&gt;next = p-&gt;next; // 将新结点的next指针指向第i个结点
+    p-&gt;next = q; // 将第i-1个结点的next指针指向新结点
+    return TRUE; // 返回成功插入的标志
+}
+</code></pre>
+<h3><a id="%E5%88%A0%E9%99%A4%E5%8D%95%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>删除单链表中指定元素</h3>
+<pre><code class="language-c">bool DeleteLink(LinkList L,int i,int &amp;e){
+    LinkList q,  p= L; // q用于指向要删除的结点，p用于指向当前结点的前一个结点
+    int j = 0; // 用于记录链表中已经遍历过的结点个数
+    while(p-&gt;next &amp;&amp; j&lt;i-1){ // 循环找到第i-1个结点
+        j++;
+        p = p-&gt;next;
+    }
+    if(!p-&gt;next || j&gt;i-1) // 判断是否找到了第i-1个结点，如果没有或者已经超出链表长度则返回错误
+        return ERROR;
+    q = p-&gt;next; // 找到要删除的结点
+    p-&gt;next = q-&gt;next; // 将第i-1个结点的next指针指向第i+1个结点
+    e = q-&gt;data; // 用于返回删除的结点的数据
+    free(q); // 释放要删除的结点的空间
+    return TRUE; // 返回成功删除的标志
+}
+</code></pre>
+<h3><a id="%E6%89%93%E5%8D%B0%E5%8D%95%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84print%E5%87%BD%E6%95%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>打印单链表元素的print函数</h3>
+<pre><code class="language-c">void PrintList(LinkList L) {
+    if (L == NULL || L-&gt;next == NULL) {
+        printf(&quot;链表为空！&quot;);
+        return;
+    }
+    LinkList p = L-&gt;next;
+    while (p != NULL) {
+        printf(&quot;%d &quot;, p-&gt;data);
+        p = p-&gt;next;
+    }
+    printf(&quot;\n&quot;);
+}
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2024-08-15T13:48:24+08:00" itemprop="datePublished">2024/08/15</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>数据结构</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="17237009048227.html" itemprop="url">
+		数据结构第二章——顺序表基本操作</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p><strong>本文主要介绍数据结构中顺序表的相关操作的代码实现，代码用c语言实现</strong></p>
+<h3><a id="%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>创建一个顺序存储结构</h3>
+<blockquote>
+<p>首先，我们创建了一个顺序表的数据结构，命名为SqList。它包含了一个指向基础数组的指针base，记录了当前顺序表的长度length，以及顺序表底层数组的大小listsize。</p>
+</blockquote>
+<pre><code class="language-c">#define LIST_INIT_SIZE 10
+#define LIST_INCREMENT 2
+#define ERROR 0
+#define TRUE 1
+typedef struct SqList{
+int *base;
+int length;
+int listsize;
+}SqList;
+</code></pre>
+<h3><a id="%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>初始化顺序表</h3>
+<blockquote>
+<p>接下来，我们进行初始化顺序表的操作InitList。它通过动态内存分配为顺序表的基础数组分配内存空间，并将顺序表的属性初始化为初始状态。</p>
+</blockquote>
+<pre><code class="language-c">// 初始化顺序表
+// L 是 SqList 对象的引用
+void InitList(SqList&amp; L) {
+    // 分配存储底层数组的内存
+    L.base = (int*)malloc(LIST_INIT_SIZE * sizeof(int));
+    if (!L.base) {
+        // 如果分配内存失败，则退出程序
+        exit(-1);
+    }
+    // 初始化 SqList 对象的属性
+    L.length = 0;
+    L.listsize = LIST_INIT_SIZE;
+}
+</code></pre>
+<h3><a id="%E9%94%80%E6%AF%81%E9%A1%BA%E5%BA%8F%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>销毁顺序表</h3>
+<blockquote>
+<p>顺序表的销毁操作DestoryList用于释放顺序表底层数组的内存空间，并将顺序表的相关属性重置为初始值。</p>
+</blockquote>
+<pre><code class="language-c">void DestoryList(SqList&amp; L){
+    free(L.base);    // 释放底层数组内存
+    L.base = NULL;   // 清空指向底层数组的指针
+    L.length = 0;    // 清空长度
+    L.listsize = 0;  // 清空底层数组的大小
+}
+</code></pre>
+<h3><a id="%E6%B8%85%E7%A9%BA%E9%A1%BA%E5%BA%8F%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>清空顺序表</h3>
+<blockquote>
+<p>清空顺序表的操作ClearList将顺序表的长度设置为0，相当于将表清空。</p>
+</blockquote>
+<pre><code class="language-c">void ClearList(SqList&amp; L){
+    L.length = 0;   // 直接将长度设置为 0，相当于清空
+}
+</code></pre>
+<h3><a id="%E5%88%A4%E6%96%AD%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>判断顺序表是否为空</h3>
+<blockquote>
+<p>判断顺序表是否为空的操作ListEmpty检查顺序表的长度是否为0，如果是，则表示顺序表为空。</p>
+</blockquote>
+<pre><code class="language-c">bool ListEmpty(SqList L){
+    if(L.length == 0)
+        return 1;   // 如果长度为 0，则表为空
+    else
+        return 0;   // 否则表非空
+}
+</code></pre>
+<h3><a id="%E8%BF%94%E5%9B%9E%E8%A1%A8%E7%9A%84%E9%95%BF%E5%BA%A6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>返回表的长度</h3>
+<blockquote>
+<p>获取顺序表长度的操作ListLength直接返回顺序表的长度。</p>
+</blockquote>
+<pre><code class="language-c">int ListLength(SqList L){
+    return L.length;
+}
+</code></pre>
+<h3><a id="%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>获取指定位置的元素</h3>
+<blockquote>
+<p>获取指定位置元素的操作GetElem用于获取顺序表中指定位置的元素。它首先判断指定位置是否在有效范围内，如果不是，则返回错误标识符。如果位置合法，就通过指针运算获取指定位置的元素值，并将其赋值给引用参数e。</p>
+</blockquote>
+<pre><code class="language-c">// 获取 SqList 中指定位置的元素
+// i 是要获取的元素的位置，e 是获取的元素的引用
+bool GetElem(SqList L, int i, int&amp; e) {
+    if (i &lt; 1 || i &gt; L.length) {
+        // 如果位置 i 不在有效范围内，则返回错误标识符
+        return ERROR;
+    }
+    e = *(L.base + i - 1);  // 获取指针 L.base+i-1 指向的元素值，赋值给 e 引用
+    return TRUE;
+}
+</code></pre>
+<h3><a id="%E6%8C%89%E7%BB%99%E5%AE%9A%E5%80%BC%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E4%BD%8D%E7%BD%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>按给定值查找元素的位置</h3>
+<blockquote>
+<p>按给定值查找元素位置的操作LocateElem用于在顺序表中查找具有指定值的元素。它通过循环遍历顺序表，将查找操作委托给用户定义的比较函数compare。如果找到匹配的元素，则返回其位置；否则返回0表示查找失败。</p>
+</blockquote>
+<pre><code class="language-c">// 在 SqList 中查找具有指定值的元素，使用 compare 函数指定比较操作
+// e 是要查找的值的引用，compare 是指向比较函数的指针
+int LocateElem(SqList L, int e, bool (*compare)(int, int)) {
+    int i = 1;          // 初始化计数器 i 为 1，表示序列中的第一个元素
+    int* p = L.base;    // 将指针 p 初始化为序列中的第一个元素的地址
+    while (i &lt;= L.length &amp;&amp; !compare(*p++, e)) {
+        // 只要 i 小于等于序列的长度，并且当前元素与查找值 e 不匹配，就循环继续
+        i++;    // 将计数器 i 加 1，表示在序列中检查下一个元素
+    }
+    if (i &lt;= L.length) {
+        // 如果循环结束时找到了匹配的元素，则返回其位置（即从 1 开始的计数器 i 的值）
+        return i;
+    } else {
+        // 如果循环结束时没有找到匹配的元素，则返回 0，表示查找失败
+        return 0;
+    }
+}
+</code></pre>
+<h3><a id="%E6%9F%A5%E6%89%BE%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0%E7%9A%84%E7%9B%B4%E6%8E%A5%E5%89%8D%E9%A9%B1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>查找顺序表指定元素的直接前驱</h3>
+<blockquote>
+<p>查找指定元素的直接前驱的操作PriorElem用于在顺序表中查找指定元素的前驱元素。它通过循环遍历顺序表，如果找到匹配的元素，则将其前一个元素赋值给引用参数pre_e。</p>
+</blockquote>
+<pre><code class="language-c">// 在 SqList 中查找指定元素的前驱元素
+// cur_e 是要查找前驱元素的元素，pre_e 是找到的前驱元素的引用
+bool PriorElem(SqList L, int cur_e, int&amp; pre_e) {
+    int i = 2;              // 初始化计数器 i 为 2，表示从序列的第二个元素开始查找
+    int *p = L.base + 1;    // 将指针 p 初始化为序列中的第二个元素的地址
+    while (i &lt;= L.length &amp;&amp; *p != cur_e) {
+        // 只要 i 小于等于序列的长度，并且当前元素不是要查找的前驱元素，就继续循环
+        p++;    // 将指针 p 向后移动一位，指向下一个元素
+        i++;    // 将计数器 i 加 1，表示在序列中检查下一个元素
+    }
+    if (i &gt; L.length) {
+        // 如果循环结束时未找到前驱元素，则返回错误标识符
+        return ERROR;
+    } else {
+        // 如果找到前驱元素，则将其赋值给 pre_e 引用并返回真
+        pre_e = *--p;
+        return TRUE;
+    }
+}
+</code></pre>
+<h3><a id="%E6%9F%A5%E6%89%BE%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0%E7%9A%84%E7%9B%B4%E6%8E%A5%E5%90%8E%E7%BB%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>查找顺序表指定元素的直接后继</h3>
+<blockquote>
+<p>查找指定元素的直接后继的操作NextElem用于在顺序表中查找指定元素的后继元素。它通过循环遍历顺序表，如果找到匹配的元素，则将其后一个元素赋值给引用参数next_e。</p>
+</blockquote>
+<pre><code class="language-c">bool NextElem(SqList L, int cur_e, int &amp;next_e){
+    int i = 1;              // 定义循环计数器 i，初始化为 1
+    int *p = L.base;        // 定义指针 p，指向顺序表 L 的首元素
+    while (i &lt;= L.length &amp;&amp; *p != cur_e){  // 当 i 小于等于顺序表 L 的长度并且指针 p 指向的元素值不等于 cur_e 时，循环遍历顺序表
+        p++;                // 将指针 p 移动到下一个元素位置
+        i++;                // 循环计数器 i 加 1
+    }
+    if (i == L.length){     // 若遍历完整个顺序表仍未找到 cur_e，返回 ERROR（0）
+        return ERROR;
+    }
+    else {                  // 否则，将指针 p 指向 cur_e 的下一个元素，并将其值赋给 next_e，返回 TRUE（1）
+        next_e = *++p;      // 将指针 p 移动到 cur_e 的下一个元素，并将该元素值赋给 next_e
+        return TRUE;
+    }
+}
+</code></pre>
+<h3><a id="%E5%9C%A8%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>在顺序表指定位置插入元素</h3>
+<blockquote>
+<p>在指定位置插入元素的操作ListInsert用于在顺序表的指定位置插入一个新元素。它首先判断插入位置的合法性，如果不合法，则返回错误标识符。如果顺序表已满，则通过realloc函数重新分配更大的内存空间，将顺序表的容量增加。然后，将插入位置及之后的元素向后移动一个位置，腾出空间插入新元素，并更新顺序表的长度。</p>
+</blockquote>
+<pre><code class="language-c">bool ListInsert(SqList &amp;L, int i, int e){
+    int *newbase, *p, *q;     // 定义指针变量 newbase、p、q
+    //判断删除的位置是否合法
+    if(i&lt;1||i&gt;L.length+1)
+        return ERROR;
+    if (L.length == L.listsize){    // 当顺序表已满时
+        newbase = (int*)realloc(L.base, (L.listsize + LIST_INCREMENT) * (sizeof(int)));   // 重新分配内存，将顺序表的大小扩大 LIST_INCREMENT 个单位
+        if (!newbase)   // 如果内存分配失败，则返回 ERROR（0）
+            return ERROR;
+        L.base = newbase;   // 将新分配的内存地址赋值给顺序表的基地址
+        L.listsize += LIST_INCREMENT;   // 更新顺序表的容量大小
+    }
+    q = L.base + i - 1;     // q 指向插入位置 i 的前一个位置
+    for (p = L.base + L.length - 1; p &gt;= q; --p)   // 将插入位置及其之后的元素向后移动一个位置
+        *(p + 1) = *p;
+    *q = e;     // 将新元素插入到插入位置 i 处
+    L.length++;     // 更新顺序表的长度
+    return TRUE;    // 插入成功，返回 TRUE（1）
+}
+</code></pre>
+<h3><a id="%E5%88%A0%E9%99%A4%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%8C%87%E5%AE%9A%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>删除顺序表指定元素</h3>
+<blockquote>
+<p>删除指定元素的操作ListDelete用于删除顺序表中的指定元素。它首先判断删除位置的合法性，如果不合法，则返回错误标识符。然后，定位要删除的元素，将要删除元素之后的所有元素向前移动一位，更新顺序表的长度，并将被删除的元素值保存到引用参数e中。</p>
+</blockquote>
+<pre><code class="language-c">bool ListDelete(SqList &amp;L,int i,int &amp;e){
+    int *p,*q;
+    //判断删除的位置是否合法
+    if(i&lt;1||i&gt;L.length)
+        return ERROR;
+    //定位要删除的元素
+    p = L.base+i-1;
+    //保存要删除的元素
+    e = *p;
+    //将要删除的元素之后的所有元素向前移动一位
+    q = L.base+L.length-1;
+    for(p++;p&lt;=q;p++)
+        *(p-1) = *p;
+    //表长减1
+    L.length--;
+    return TRUE;
+}
+</code></pre>
+<p><strong>顺序表</strong>作为一种简单而常用的数据结构，在算法和数据结构领域扮演着重要的角色。对于进一步深入学习和应用数据结构和算法来说，掌握顺序表的基本操作是一个重要的基础。<br />
+通过掌握这些基本操作，我们可以更有效地使用顺序表来管理和处理元素。需要注意的是，顺序表的主要限制是固定的容量，当表已满时无法再插入新元素。对于需要频繁插入和删除操作的场景，可能需要考虑其他数据结构。</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2024-08-15T13:48:24+08:00" itemprop="datePublished">2024/08/15</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>数据结构</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="17237009048267.html" itemprop="url">
+		线索二叉树</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h2><a id="%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>什么是线索二叉树？</strong></h2>
+<p>线索化是对二叉树的一种优化方法，目的是在不增加额外空间的情况下，使遍历二叉树更加高效。线索化后的二叉树称为线索二叉树。<br />
+线索二叉树的定义是：在二叉树中，将所有空的右孩子指向其后继结点，将所有空的左孩子指向其前驱结点，这样构造出来的二叉树称为线索二叉树。<br />
+线索化的过程分为两步：</p>
+<ol>
+<li>对二叉树进行中序遍历，将遍历到的结点进行线索化。</li>
+<li>对于每个结点，如果其左子树为空，则将其左孩子指向其前驱结点；如果其右子树为空，则将其右孩子指向其后继结点。<br />
+线索化后，遍历线索二叉树时，可以不用递归或栈，而是直接按照指针的方向遍历即可，因为每个结点的左右孩子指针都指向了其前驱和后继结点。</li>
+</ol>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// 线索二叉树的结构体
+typedef struct ThreadNode {
+    int data;
+    struct ThreadNode *leftChild;
+    struct ThreadNode *rightChild;
+    int leftTag;  // 左线索标记，0表示指向左子树，1表示指向前驱结点
+    int rightTag;  // 右线索标记，0表示指向右子树，1表示指向后继结点
+} ThreadNode, *ThreadTree;
+
+// 创建线索二叉树
+void createThreadTree(ThreadTree *tree) {
+    int data;
+    scanf(&quot;%d&quot;, &amp;data);
+    if (data == -1) {  // 如果输入-1，则表示该结点为空
+        *tree = NULL;
+    } else {
+        *tree = (ThreadNode *)malloc(sizeof(ThreadNode));
+        (*tree)-&gt;data = data;
+        (*tree)-&gt;leftTag = 0;
+        (*tree)-&gt;rightTag = 0;
+        createThreadTree(&amp;(*tree)-&gt;leftChild);  // 递归创建左子树
+        createThreadTree(&amp;(*tree)-&gt;rightChild);  // 递归创建右子树
+    }
+}
+
+// 中序遍历线索化二叉树
+void inOrderThread(ThreadTree tree, ThreadNode **pre) {
+    if (tree != NULL) {
+        inOrderThread(tree-&gt;leftChild, pre);  // 递归遍历左子树
+        if (tree-&gt;leftChild == NULL) {  // 如果左子树为空，则将左指针指向前驱结点
+            tree-&gt;leftTag = 1;
+            tree-&gt;leftChild = *pre;
+        }
+        if (*pre != NULL &amp;&amp; (*pre)-&gt;rightChild == NULL) {  // 如果前驱结点的右子树为空，则将右指针指向后继结点
+            (*pre)-&gt;rightTag = 1;
+            (*pre)-&gt;rightChild = tree;
+        }
+        *pre = tree;  // 更新前驱结点
+        inOrderThread(tree-&gt;rightChild, pre);  // 递归遍历右子树
+    }
+}
+
+// 中序遍历线索二叉树
+void inOrderTraverse(ThreadTree tree) {
+    ThreadNode *p = tree;
+    while (p != NULL) {
+        while (p-&gt;leftTag == 0) {  // 如果左指针指向左子树，则一直向左遍历
+            p = p-&gt;leftChild;
+        }
+        printf(&quot;%d &quot;, p-&gt;data);  // 输出当前结点
+        while (p-&gt;rightTag == 1) {  // 如果右指针指向后继结点，则一直向右遍历
+            p = p-&gt;rightChild;
+            printf(&quot;%d &quot;, p-&gt;data);  // 输出后继结点
+        }
+        p = p-&gt;rightChild;  // 否则，向右遍历下一个结点
+    }
+}
+
+int main() {
+    ThreadTree tree;
+    createThreadTree(&amp;tree);  // 创建线索二叉树
+    ThreadNode *pre = NULL;
+    inOrderThread(tree, &amp;pre);  // 中序遍历线索化二叉树
+    inOrderTraverse(tree);  // 中序遍历线索二叉树
+    return 0;
+}
+
+</code></pre>
+<h2><a id="%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9B%B8%E5%AF%B9%E4%BA%8E%E6%99%AE%E9%80%9A%E4%BA%8C%E5%8F%89%E6%A0%91" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>线索二叉树相对于普通二叉树</strong></h2>
+<h3><a id="%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%BC%98%E5%8A%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>线索二叉树的优势</h3>
+<p>线索二叉树相对于普通二叉树的优势主要有两点：<br />
+首先，线索二叉树可以在不使用递归或栈的情况下，高效地遍历二叉树。这是因为线索二叉树中每个结点的左右孩子指针都指向了其前驱和后继结点，因此可以直接按照指针的方向遍历。这样可以避免递归或栈带来的额外空间开销和时间开销，从而提高遍历效率。</p>
+<p>其次，线索二叉树可以提高二叉树的存储效率。在普通二叉树中，如果需要在遍历时保存所有结点的访问顺序，需要使用递归或栈来保存。这样会带来额外的空间开销。而在线索二叉树中，由于每个结点的左右孩子指针都指向了其前驱和后继结点，因此可以不用保存所有结点的访问顺序，从而节省空间开销。</p>
+<p>综上所述，线索二叉树相对于普通二叉树具有高效遍历和节省空间的优势。但是线索化过程需要额外的时间开销，因此如果只需要遍历一次二叉树，普通二叉树可能更为适合。</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2024-08-15T13:48:24+08:00" itemprop="datePublished">2024/08/15</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>数据结构</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="17237009048683.html" itemprop="url">
+		KMP算法介绍</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h2><a id="%E4%BB%80%E4%B9%88%E6%98%AFkmp%E7%AE%97%E6%B3%95%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>什么是KMP算法？</h2>
+<p>KMP算法,听起来像是什么高大上的算法,实际上它的全称是Knuth-Morris-Pratt算法,是一种高效解决模式匹配问题的算法。所谓模式匹配,就是在一大串文本中找到一个模式串出现的位置。</p>
+<h2><a id="%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>举个例子</h2>
+<p>举个简单的例子,如果文本是&quot;<strong>BBC ABCDAB ABCDABCDABDE</strong>&quot;,模式串是&quot;<strong>ABCDABD</strong>&quot;,那么使用KMP算法可以找到这个模式串在文本中的两个位置:<strong>8和15</strong>。</p>
+<h2><a id="%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%91%A2%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>如何实现呢？</h2>
+<p>那么KMP算法究竟是如何高效解决这个模式匹配问题的呢?这就需要我们搞清楚其中的原理了。KMP算法的核心思想是:<em><strong>利用模式串中的信息,能够让模式指针有效前移,从而减少回溯次数,加快搜索速度。</strong></em></p>
+<blockquote>
+<p>听起来比较抽象,我们通过一个例子来理解KMP算法的工作原理。假设文本是&quot;ABCABCDABXABCDABCDABDE&quot;,模式串是&quot;ABCDABD&quot;。</p>
+</blockquote>
+<p>当模式指针匹配到第8个字符&quot;A&quot;时,发现字符不匹配,此时一般的算法会马上回溯,让模式指针退回到最右起点,然后继续右移。但是KMP算法不会完全回溯,它通过已经得到的信息——模式串中前6个字符&quot;ABCDAB&quot;已经匹配,可以直接略过,模式指针只需要退回到&quot;AB&quot;这两个字符,然后继续右移匹配。</p>
+<p>这就是KMP算法的精髓——<u><strong>利用已经匹配的信息有效推进模式指针,减少回溯次数,加快搜索效率</strong></u>。</p>
+<p>KMP算法实现的关键在于求出模式串的 &quot;前缀表&quot; 和 &quot;后缀表&quot;。前缀表简单来说,是模式串中每一个前缀的最大共同前缀长度。后缀表的求法也类似。有了这两个表,就可以根据当前匹配情况,直接得到需要回溯的位置了。</p>
+<p>举个例子,对于模式串&quot;ABCDABD&quot;,它的前缀表和后缀表如下:</p>
+<p>前缀表:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center">A</th>
+<th style="text-align: center">AB</th>
+<th style="text-align: center">ABC</th>
+<th style="text-align: center">ABCD</th>
+<th style="text-align: center">ABCDA</th>
+<th style="text-align: center">ABCDAB</th>
+<th style="text-align: center">ABCDABD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center">0</td>
+<td style="text-align: center">0</td>
+<td style="text-align: center">0</td>
+<td style="text-align: center">0</td>
+<td style="text-align: center">1</td>
+<td style="text-align: center">2</td>
+<td style="text-align: center">0</td>
+</tr>
+</tbody>
+</table>
+<p>后缀表:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center">D</th>
+<th style="text-align: center">BD</th>
+<th style="text-align: center">ABD</th>
+<th style="text-align: center">DAB</th>
+<th style="text-align: center">BCD</th>
+<th style="text-align: center">ABCD</th>
+<th style="text-align: center">CDAB</th>
+<th style="text-align: center">AB</th>
+<th style="text-align: center">B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center">3</td>
+<td style="text-align: center">2</td>
+<td style="text-align: center">1</td>
+<td style="text-align: center">0</td>
+<td style="text-align: center">0</td>
+<td style="text-align: center">0</td>
+<td style="text-align: center">1</td>
+<td style="text-align: center">2</td>
+<td style="text-align: center">3</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到,&quot;ABCDAB&quot;这个前缀的最大公共前缀长度是2,&quot;ABD&quot;这个后缀的最大公共后缀长度也是1。那么当匹配到第8个字符出现不匹配时,模式指针只需要回溯到第6个字符就可以继续匹配了,这就提高了效率。</p>
+<h2><a id="%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>代码实现</h2>
+<p>KMP算法的代码实现也比较简单,首先请参考下面的代码,理解KMP算法的实现步骤:</p>
+<pre><code class="language-python">def KMP(s, p):   # 字符串s, 模式 p
+    n, m = len(s), len(p)
+    if n &lt; m:
+        return -1        # 如果s比p短,直接返回-1
+    
+    # 求next数组 
+    next = [-1]*m         # next数组初始值-1
+    k = -1                # k代表前缀末尾下标
+    next[0] = -1         # next数组第一个元素-1
+    
+    for j in range(1, m): 
+        while k != -1 and p[k+1] != p[j]:    # 当k不等于-1,且当前字符不等于next[k]字符时
+            k = next[k]                       # k移动到next[k]下标所在位置
+        if p[k+1] == p[j]:                   # 找到最大公共前后缀
+            k += 1
+            next[j] = k+1                        # next[j]赋值
+        else:
+            next[j] = -1                       # 没找到公共前缀,赋值为-1
+    k = -1
+    
+    # KMP搜索
+    j = 0
+    while j &lt; n:
+        while k != -1 and s[j] != p[k+1]:   # 不匹配时按照next数组移动k
+            k = next[k] 
+        if s[j] == p[k+1]:                  # 找到匹配字符
+            j += 1; k += 1
+        if k == m-1:                        # 找到匹配模式串
+            return j-m                     # 返回匹配起始下标
+        else: 
+            next[j] = k                    # 更新next数组
+    return -1
+</code></pre>
+<p>有了next数组,搜索过程中就可以利用它快速推进模式指针,实现匹配。如果找到匹配,返回模式串起始位置下标,否则返回-1。</p>
+<p>KMP算法虽然理论上复杂,但是代码实现其实很简洁。通过建立next数组,它巧妙地利用了模式串的公共前后缀信息,使得模式指针可以在O(n)的时间内完成匹配,大大减少了回溯次数,提高了效率。</p>
+<p>这就是KMP算法的全过程和原理,希望我的讲解对你有所帮助!如果有任何问题,欢迎在评论区提出,我会尽快回复。</p>
+
+
+			
+			
+		</div>
+
+	</article>
+  
+
+</div>
+<nav id="pagenavi">
+	 
+	
+	<div class="center"><a href="archives.html">Blog Archives</a></div>
+
+</nav>
+
+</div>
+
+
+
+        </div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+      </footer>
+		</div>
+	</div>
+
+  
+    
+
+
+
+</body>
+</html>
